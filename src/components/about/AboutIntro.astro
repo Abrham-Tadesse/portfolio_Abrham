@@ -1,0 +1,117 @@
+<section class="about">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">About Me</p>
+      <h2>Building software that solves real problems.</h2>
+    </div>
+
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I'm a software developer interested in building practical,
+          reliable, and useful applications.
+        </p>
+
+        <p>
+          I enjoy working across the stack, from designing user interfaces
+          to building backend APIs and working with databases.
+        </p>
+
+        <p>
+          My goal is not simply to write code, but to understand the problem
+          first and build a solution that is actually useful.
+        </p>
+      </div>
+
+      <div class="about-highlight">
+        <div>
+          <strong>Focus</strong>
+          <span>Full-Stack Development</span>
+        </div>
+
+        <div>
+          <strong>Approach</strong>
+          <span>Problem Solving</span>
+        </div>
+
+        <div>
+          <strong>Currently</strong>
+          <span>Learning & Building</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 8rem 0;
+  }
+
+  .section-heading {
+    max-width: 750px;
+    margin-bottom: 4rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+  }
+
+  .about-text {
+    max-width: 700px;
+  }
+
+  .about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .about-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-highlight div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .about-highlight strong {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .about-highlight span {
+    line-height: 1.5;
+  }
+
+  @media (max-width: 700px) {
+    .about {
+      padding: 5rem 0;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,94 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  description: string;
+}
+
+const { name, role, description } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero-content">
+    <p class="greeting">Hello, I'm</p>
+
+    <h1>{name}</h1>
+
+    <h2>{role}</h2>
+
+    <p class="description">
+      {description}
+    </p>
+
+    <div class="actions">
+      <a href="/projects" class="button primary">
+        View My Projects
+      </a>
+
+      <a href="/contact" class="button secondary">
+        Contact Me
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 900px;
+  }
+
+  .greeting {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 0.95;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    max-width: 650px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #111;
+  }
+
+  .primary {
+    background: #111;
+    color: white;
+  }
+
+  .secondary {
+    background: white;
+    color: #111;
+  }
+
+  .button:hover {
+    opacity: 0.75;
+  }
+</style>
