@@ -1,56 +1,81 @@
-<nav class="navbar">
-  <div class="container navbar-content">
+---
+---
+
+<header class="navbar">
+  <div class="navbar-container">
+
     <a href="/" class="logo">
       Your Name
     </a>
 
-    <ul class="nav-links">
-      <li>
-        <a href="/">Home</a>
-      </li>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/contact">Contact</a>
+    </nav>
 
-      <li>
-        <a href="/about">About</a>
-      </li>
-
-      <li>
-        <a href="/projects">Projects</a>
-      </li>
-
-      <li>
-        <a href="/blog">Blog</a>
-      </li>
-
-      <li>
-        <a href="/contact">Contact</a>
-      </li>
-    </ul>
   </div>
-</nav>
+</header>
 
 <style>
   .navbar {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid #eee;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    background: #ffffff;
   }
 
-  .navbar-content {
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-
+  
   .logo {
-    font-size: 1.25rem;
-    font-weight: 700;
+    color: #111111;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-decoration: none;
+    position:fixed;
+    left: 5%;
   }
-
-  .nav-links {
+  
+  .navigation {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 2rem;
+    float: right;
+    position: fixed;
+    right: 10%;
   }
 
-  .nav-links a:hover {
-    opacity: 0.6;
+  .navigation a {
+    color: #111111;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    /* float: right; */
+    }
+
+  .navigation a:hover {
+    opacity: 0.55;
+  }
+
+  @media (max-width: 600px) {
+    .navbar-container {
+      padding: 1rem;
+    }
+
+    .navigation {
+      gap: 1rem;
+    }
+
+    .navigation a {
+      font-size: 0.85rem;
+    }
   }
 </style>
