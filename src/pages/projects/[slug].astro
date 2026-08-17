@@ -1,0 +1,219 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/navigation/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: {
+      slug: project.slug
+    },
+    props: {
+      project
+    }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.title} | Your Name`}
+  description={project.description}
+>
+  <Navbar />
+
+  <main>
+    <article class="project-detail">
+      <div class="container">
+
+        <header class="project-header">
+          <p class="eyebrow">Project</p>
+
+          <h1>{project.title}</h1>
+
+          <p class="description">
+            {project.description}
+          </p>
+
+          <div class="links">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo
+              </a>
+            )}
+          </div>
+        </header>
+
+        <section class="case-study">
+
+          <div class="case-section">
+            <h2>The Problem</h2>
+
+            <p>
+              {project.problem}
+            </p>
+          </div>
+
+          <div class="case-section">
+            <h2>The Solution</h2>
+
+            <p>
+              {project.solution}
+            </p>
+          </div>
+
+          <div class="case-section">
+            <h2>Features</h2>
+
+            <ul>
+              {project.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <h2>Technologies</h2>
+
+            <div class="technologies">
+              {project.technologies.map((technology) => (
+                <span>{technology}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="case-section">
+            <h2>Challenges</h2>
+
+            <ul>
+              {project.challenges.map((challenge) => (
+                <li>{challenge}</li>
+              ))}
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .project-detail {
+    padding: 8rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .project-header {
+    margin-bottom: 7rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+  }
+
+  .description {
+    max-width: 700px;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+
+  .links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .links a {
+    font-weight: 600;
+  }
+
+  .links a:hover {
+    opacity: 0.6;
+  }
+
+  .case-study {
+    max-width: 750px;
+  }
+
+  .case-section {
+    margin-bottom: 5rem;
+  }
+
+  .case-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .case-section p {
+    line-height: 1.8;
+  }
+
+  .case-section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .case-section li {
+    line-height: 1.6;
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .technologies span {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #ddd;
+  }
+
+  @media (max-width: 700px) {
+    .project-detail {
+      padding: 5rem 0;
+    }
+
+    .project-header {
+      margin-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 15vw, 4rem);
+    }
+  }
+</style>

@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/navigation/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Contact | Your Name"
+  description="Get in touch with Your Name."
+>
+  <Navbar />
+
+  <main>
+    <section class="contact">
+      <div class="container">
+
+        <header class="contact-header">
+          <p class="eyebrow">Contact</p>
+
+          <h1>Let's work together.</h1>
+
+          <p>
+            Have a project, opportunity, or idea you'd like to discuss?
+            Feel free to get in touch.
+          </p>
+        </header>
+
+        <div class="contact-links">
+
+          <a href="mailto:your-email@example.com">
+            <span>Email</span>
+            <strong>your-email@example.com</strong>
+          </a>
+
+          <a
+            href="https://github.com/your-username"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>GitHub</span>
+            <strong>github.com/your-username</strong>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/your-username/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>LinkedIn</span>
+            <strong>linkedin.com/in/your-username</strong>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .contact {
+    padding: 9rem 0;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .contact-header {
+    max-width: 750px;
+    margin-bottom: 5rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+  }
+
+  .contact-header > p:last-child {
+    max-width: 650px;
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .contact-links a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 2rem;
+    border: 1px solid #ddd;
+  }
+
+  .contact-links a:hover {
+    background: #f7f7f7;
+  }
+
+  .contact-links span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .contact-links strong {
+    word-break: break-word;
+  }
+
+  @media (max-width: 800px) {
+    .contact-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
