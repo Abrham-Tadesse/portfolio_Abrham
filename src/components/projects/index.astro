@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/navigation/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectGrid from "../../components/projects/ProjectGrid.astro";
+---
+
+<BaseLayout
+  title="Projects | Your Name"
+  description="Projects built by Your Name."
+>
+  <Navbar />
+
+  <main>
+    <section class="projects-page">
+      <div class="container">
+
+        <header class="page-header">
+          <p class="eyebrow">My Work</p>
+
+          <h1>Projects</h1>
+
+          <p>
+            A collection of software projects I've built while learning,
+            experimenting, and solving practical problems.
+          </p>
+        </header>
+
+        <ProjectGrid />
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .projects-page {
+    padding: 8rem 0;
+  }
+
+  .page-header {
+    max-width: 750px;
+    margin-bottom: 5rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+  }
+
+  .page-header p:last-child {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+</style>

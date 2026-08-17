@@ -1,0 +1,97 @@
+---
+import { skillCategories } from "../../data/skills";
+---
+
+<section class="skills">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Skills</p>
+
+      <h2>
+        Technologies I use to build software.
+      </h2>
+    </div>
+
+    <div class="skills-grid">
+      {skillCategories.map((category) => (
+        <div class="skill-category">
+
+          <h3>{category.title}</h3>
+
+          <ul>
+            {category.skills.map((skill) => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .skills {
+    padding: 8rem 0;
+    background: #f7f7f7;
+  }
+
+  .section-heading {
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    padding: 2rem;
+    background: white;
+    border: 1px solid #ddd;
+  }
+
+  .skill-category h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .skill-category ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .skill-category li {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 700px) {
+    .skills {
+      padding: 5rem 0;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
