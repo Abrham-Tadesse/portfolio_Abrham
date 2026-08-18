@@ -4,30 +4,38 @@
 <section class="about-preview">
   <div class="container">
 
-    <div class="section-heading">
-      <p class="eyebrow">About Me</p>
+    <div class="section-number">
+      <span>01</span>
+      <span>About</span>
+    </div>
+
+    <div class="about-content">
 
       <h2>
         I build software to solve practical problems.
       </h2>
-    </div>
 
-    <div class="content">
-      <p>
-        I'm a software developer interested in building useful applications
-        and understanding how technology works from the frontend to the
-        backend.
-      </p>
+      <div class="about-text">
 
-      <p>
-        I enjoy working with modern web technologies, designing APIs,
-        connecting applications to databases, and turning ideas into
-        working software.
-      </p>
+        <p>
+          I'm a software developer interested in building useful
+          applications and understanding how technology works from
+          the frontend to the backend.
+        </p>
 
-      <a href="/about" class="about-link">
-        More about me →
-      </a>
+        <p>
+          I enjoy working with modern web technologies, designing APIs,
+          connecting applications to databases, and turning ideas into
+          working software.
+        </p>
+
+        <a href="/about" class="about-link">
+          More about me
+          <span>→</span>
+        </a>
+
+      </div>
+
     </div>
 
   </div>
@@ -35,60 +43,102 @@
 
 <style>
   .about-preview {
-    padding: 8rem 0;
-    border-top: 1px solid #e5e5e5;
+    padding: 11rem 0;
+    border-top: 1px solid #d8d8d5;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
   }
 
-  .eyebrow {
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
+  .section-number {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 5rem;
+
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+  }
+
+  .section-number span:first-child {
+    color: #888;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 6rem;
   }
 
   h2 {
-    max-width: 550px;
+    max-width: 750px;
     margin: 0;
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-  }
 
-  .content {
-    max-width: 600px;
-  }
-
-  .content p {
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-    line-height: 1.8;
-  }
-
-  .about-link {
-    display: inline-block;
-    margin-top: 1rem;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
     font-weight: 700;
   }
 
+  .about-text {
+    max-width: 500px;
+  }
+
+  .about-text p {
+    margin: 0 0 1.5rem;
+
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    margin-top: 1rem;
+
+    font-weight: 700;
+
+    transition: gap 0.25s ease;
+  }
+
   .about-link:hover {
-    opacity: 0.55;
+    gap: 1.2rem;
   }
 
   @media (max-width: 800px) {
-    .container {
+    .about-preview {
+      padding: 8rem 0;
+    }
+
+    .about-content {
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .about-preview {
+      padding: 7rem 0;
+    }
+
+    .section-number {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: clamp(3rem, 13vw, 5rem);
     }
   }
 </style>

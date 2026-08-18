@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/navigation/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import ProjectGrid from "../../components/projects/ProjectGrid.astro";
+import ContactCTA from "../../components/home/ContactCTA.astro";
 ---
 
 <BaseLayout
@@ -12,55 +13,127 @@ import ProjectGrid from "../../components/projects/ProjectGrid.astro";
   <Navbar />
 
   <main>
+
     <section class="projects-page">
+
       <div class="container">
 
-        <header class="page-header">
-          <p class="eyebrow">My Work</p>
+        <div class="section-number">
+          <span>03</span>
+          <span>Projects</span>
+        </div>
 
-          <h1>Projects</h1>
+        <header class="page-header">
+
+          <h1>
+            Things I've built.
+          </h1>
 
           <p>
-            A collection of software projects I've built while learning,
+            A collection of projects I've built while learning,
             experimenting, and solving practical problems.
           </p>
+
         </header>
 
         <ProjectGrid />
 
       </div>
+
     </section>
+
+    <ContactCTA />
+
   </main>
 
   <Footer />
+
 </BaseLayout>
 
 <style>
   .projects-page {
-    padding: 8rem 0;
+    padding: 8rem 0 10rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-number {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 5rem;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .section-number span:first-child {
+    color: #888;
+  }
+
+  .section-number span:last-child {
+    color: #111;
   }
 
   .page-header {
-    max-width: 750px;
-    margin-bottom: 5rem;
-  }
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 6rem;
 
-  .eyebrow {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    margin-bottom: 7rem;
   }
 
   h1 {
-    margin-bottom: 1.5rem;
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 1;
+    margin: 0;
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
   }
 
-  .page-header p:last-child {
+  .page-header p {
+    max-width: 500px;
+    margin: 0;
+
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 800px) {
+    .projects-page {
+      padding: 6rem 0 7rem;
+    }
+
+    .page-header {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      margin-bottom: 5rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .projects-page {
+      padding: 5rem 0 6rem;
+    }
+
+    .section-number {
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 15vw, 5rem);
+    }
   }
 </style>

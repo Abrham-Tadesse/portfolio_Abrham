@@ -1,24 +1,24 @@
-export interface SkillCategory {
-  title: string;
+export interface SkillGroup {
+  category: string;
   skills: string[];
 }
 
-export const skillCategories: SkillCategory[] = [
+export const skillGroups: SkillGroup[] = [
   {
-    title: "Frontend",
+    category: "Frontend",
     skills: [
       "HTML",
       "CSS",
       "JavaScript",
       "TypeScript",
       "React",
-      "Astro",
+      "Redux Toolkit",
       "Tailwind CSS"
     ]
   },
 
   {
-    title: "Backend",
+    category: "Backend",
     skills: [
       "Node.js",
       "Express",
@@ -29,7 +29,7 @@ export const skillCategories: SkillCategory[] = [
   },
 
   {
-    title: "Database",
+    category: "Database",
     skills: [
       "MongoDB",
       "Mongoose",
@@ -38,7 +38,7 @@ export const skillCategories: SkillCategory[] = [
   },
 
   {
-    title: "Tools & Technologies",
+    category: "Tools & Technologies",
     skills: [
       "Git",
       "GitHub",

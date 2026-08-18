@@ -1,34 +1,24 @@
 ---
 import { projects } from "../../data/projects";
 import ProjectCard from "./ProjectCard.astro";
-
-interface Props {
-  featuredOnly?: boolean;
-}
-
-const { featuredOnly = false } = Astro.props;
-
-const displayedProjects = featuredOnly
-  ? projects.filter((project) => project.featured)
-  : projects;
 ---
 
-<div class="project-grid">
-  {displayedProjects.map((project) => (
-    <ProjectCard project={project} />
+<div class="projects-grid">
+
+  {projects.map((project) => (
+    <ProjectCard
+      title={project.title}
+      slug={project.slug}
+      description={project.description}
+      technologies={project.technologies}
+      featured={project.featured}
+    />
   ))}
+
 </div>
 
 <style>
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 800px) {
-    .project-grid {
-      grid-template-columns: 1fr;
-    }
+  .projects-grid {
+    width: 100%;
   }
 </style>

@@ -40,36 +40,84 @@ import ProjectGrid from "../../components/projects/ProjectGrid.astro";
 
 <style>
   .projects-page {
-    padding: 8rem 0;
+    padding: 9rem 0 11rem;
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
-  .page-header {
-    max-width: 750px;
-    margin-bottom: 5rem;
-  }
+  .section-number {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
-  .eyebrow {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
+    margin-bottom: 5rem;
+
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
   }
 
-  h1 {
-    margin-bottom: 1.5rem;
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 1;
+  .section-number span:first-child {
+    color: #888;
   }
 
-  .page-header p:last-child {
+  .page-header {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 6rem;
+
+    margin-bottom: 8rem;
+  }
+
+  .page-header h1 {
+    margin: 0;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 0.88;
+    letter-spacing: -0.065em;
+  }
+
+  .page-header p {
+    max-width: 500px;
+    margin: 0;
+
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.85;
+  }
+
+  @media (max-width: 800px) {
+    .projects-page {
+      padding: 7rem 0 8rem;
+    }
+
+    .page-header {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      margin-bottom: 6rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .projects-page {
+      padding: 6rem 0 7rem;
+    }
+
+    .section-number {
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(3.5rem, 16vw, 6rem);
+    }
   }
 </style>

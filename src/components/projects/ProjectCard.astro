@@ -1,48 +1,47 @@
 ---
-import type { Project } from "../../data/projects";
-
 interface Props {
-  project: Project;
+  title: string;
+  slug: string;
+  description: string;
+  technologies: string[];
+  featured?: boolean;
 }
 
-const { project } = Astro.props;
+const {
+  title,
+  slug,
+  description,
+  technologies,
+  featured = false
+} = Astro.props;
 ---
 
 <article class="project-card">
 
+  <div class="project-meta">
+    <span>Project</span>
+
+    {featured && (
+      <span>Featured</span>
+    )}
+  </div>
+
   <div class="project-content">
 
-    <p class="project-label">
-      Project
-    </p>
+    <h2>{title}</h2>
 
-    <h2>
-      {project.title}
-    </h2>
-
-    <p class="description">
-      {project.description}
-    </p>
+    <p>{description}</p>
 
     <div class="technologies">
-      {project.technologies.map((technology) => (
+      {technologies.map((technology) => (
         <span>{technology}</span>
       ))}
     </div>
 
-    <div class="links">
-      <a href={`/projects/${project.slug}`}>
-        View Project →
-      </a>
-
-      <a
-        href={project.github}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub ↗
-      </a>
-    </div>
+    <a href={`/projects/${slug}`} class="project-link">
+      View project
+      <span>→</span>
+    </a>
 
   </div>
 
@@ -50,71 +49,96 @@ const { project } = Astro.props;
 
 <style>
   .project-card {
-    border: 1px solid #ddd;
-    background: white;
-    transition: transform 0.2s ease;
+    padding: 3rem 0;
+    border-top: 1px solid #ddd;
+    transition:
+      padding 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .project-card:last-child {
+    border-bottom: 1px solid #ddd;
   }
 
   .project-card:hover {
-    transform: translateY(-4px);
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .project-content {
-    padding: 2rem;
-  }
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
 
-  .project-label {
-    margin-bottom: 1rem;
-    font-size: 0.8rem;
+    margin-bottom: 2rem;
+
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
+  .project-meta span:last-child {
+    color: #888;
   }
 
-  .description {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
+  .project-content {
+    max-width: 850px;
+  }
+
+  h2 {
+    margin: 0 0 1.25rem;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    max-width: 650px;
+    margin: 0 0 2rem;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
   }
 
   .technologies {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+
     margin-bottom: 2rem;
   }
 
   .technologies span {
-    padding: 0.4rem 0.7rem;
+    padding: 0.4rem 0.65rem;
+
     border: 1px solid #ddd;
+
     font-size: 0.8rem;
   }
 
-  .links {
-    display: flex;
-    gap: 1.5rem;
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    font-weight: 700;
+
+    transition: gap 0.2s ease;
   }
 
-  .links a {
-    font-weight: 600;
-  }
-
-  .links a:hover {
-    opacity: 0.6;
+  .project-link:hover {
+    gap: 1.2rem;
   }
 
   @media (max-width: 600px) {
-    .project-content {
-      padding: 1.5rem;
+    .project-card {
+      padding: 2rem 0;
     }
 
-    .links {
-      flex-direction: column;
-      gap: 0.8rem;
+    .project-card:hover {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
   }
 </style>
