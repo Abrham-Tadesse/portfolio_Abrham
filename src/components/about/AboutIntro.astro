@@ -1,41 +1,40 @@
 ---
+import Reveal from "../animations/Reveal.astro"
 ---
 
 <section class="about-preview">
   <div class="container">
 
-    <div class="section-number">
-      <span>01</span>
-      <span>About</span>
-    </div>
+  <Reveal>
+      <div class="section-number">
+        <span>01</span>
+        <span>About</span>
+      </div>
+    </Reveal>
 
     <div class="about-content">
 
-      <h2>
-        I build software to solve practical problems.
-      </h2>
+     <Reveal>
+        <h2>
+          I build software to solve practical problems.
+        </h2>
+      </Reveal>
 
-      <div class="about-text">
+           <Reveal delay={150}>
+        <div class="about-text">
 
-        <p>
-          I'm a software developer interested in building useful
-          applications and understanding how technology works from
-          the frontend to the backend.
-        </p>
+          <p>
+            I'm a software developer interested in building
+            useful applications and understanding how
+            technology works from the frontend to the backend.
+          </p>
 
-        <p>
-          I enjoy working with modern web technologies, designing APIs,
-          connecting applications to databases, and turning ideas into
-          working software.
-        </p>
+          <a href="/about" class="about-link">
+            More about me →
+          </a>
 
-        <a href="/about" class="about-link">
-          More about me
-          <span>→</span>
-        </a>
-
-      </div>
-
+        </div>
+      </Reveal>
     </div>
 
   </div>

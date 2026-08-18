@@ -1,29 +1,35 @@
 ---
 import { skillGroups } from "../../data/skills";
+import Reveal from "../animations/Reveal.astro";
 ---
 
 <section class="skills">
   <div class="container">
-
-    <div class="section-number">
-      <span>02</span>
-      <span>Skills</span>
-    </div>
+<Reveal>
+  <div class="section-number">
+    <span>02</span>
+    <span>Skills</span>
+  </div>
+</Reveal>
 
     <div class="skills-header">
-      <h2>
-        Technologies I work with.
-      </h2>
+    <Reveal delay={100}>
+  <h2>Technologies I work with.</h2>
+</Reveal>
 
-      <p>
-        Tools and technologies I use to design, build, and connect
-        software applications.
-      </p>
+     <Reveal delay={200}>
+  <p>
+    Technologies and tools I use to build software.
+  </p>
+</Reveal>
     </div>
 
+
+   
     <div class="skills-list">
 
       {skillGroups.map((group) => (
+         <Reveal delay={100}>
         <div class="skill-group">
 
           <h3>
@@ -39,12 +45,14 @@ import { skillGroups } from "../../data/skills";
           </div>
 
         </div>
+        </Reveal>
       ))}
 
     </div>
 
   </div>
 </section>
+
 
 
 

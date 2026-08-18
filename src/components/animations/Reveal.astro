@@ -1,0 +1,67 @@
+---
+interface Props {
+  delay?: number;
+  class?: string;
+}
+
+const {
+  delay = 0,
+  class: className = ""
+} = Astro.props;
+---
+
+<div
+  class={`reveal ${className}`}
+  style={`--delay: ${delay}ms`}
+>
+  <slot />
+</div>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+    transition-delay: var(--delay);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  reveals.forEach((element) => {
+    observer.observe(element);
+  });
+</script>

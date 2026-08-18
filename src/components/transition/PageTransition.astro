@@ -1,0 +1,85 @@
+---
+---
+
+<div class="page-transition" aria-hidden="true">
+  <div class="transition-content">
+    <span class="transition-number">00</span>
+    <span class="transition-label">Loading</span>
+  </div>
+</div>
+
+<script>
+  const transition =
+    document.querySelector(".page-transition");
+
+  if (transition) {
+
+    // Hide the transition when the first page loads
+    window.addEventListener("load", () => {
+      transition.classList.add("is-hidden");
+    });
+
+    // Show transition before Astro changes pages
+    document.addEventListener(
+      "astro:before-preparation",
+      () => {
+        transition.classList.remove("is-hidden");
+      }
+    );
+
+    // Hide transition after the new page is ready
+    document.addEventListener(
+      "astro:page-load",
+      () => {
+        requestAnimationFrame(() => {
+          transition.classList.add("is-hidden");
+        });
+      }
+    );
+
+  }
+</script>
+
+<style>
+  .page-transition {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #111;
+
+    pointer-events: none;
+
+    clip-path: inset(0 0 0 0);
+
+    transition:
+      clip-path 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .page-transition.is-hidden {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .transition-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    color: white;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .transition-number {
+    opacity: 0.4;
+  }
+</style>
