@@ -1,41 +1,35 @@
-/* ================================
-   Global Reset
-================================ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap');
 
-*,
-*::before,
-*::after {
+:root {
+  --bg-color: #f4f4f0;
+  --text-main: #0e0e0e;
+  --text-muted: #666660;
+  --border-color: #dcdcd6;
+  --border-dark: #0e0e0e;
+  --accent: #111111;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 16px;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-
-  background: #f7f7f5;
-  color: #111;
-
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  line-height: 1.5;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-img {
-  display: block;
-  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
 a {
@@ -43,41 +37,7 @@ a {
   text-decoration: none;
 }
 
-button,
-input,
-textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-::selection {
-  background: #111;
-  color: #fff;
-}
-
-/* ================================
-   Page Transitions
-================================ */
-
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-::view-transition-old(root) {
-  animation: none;
-}
-
-::view-transition-new(root) {
-  animation: page-enter 0.45s ease both;
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
 }

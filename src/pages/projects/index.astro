@@ -8,8 +8,8 @@ import ProjectGrid from "../../components/projects/ProjectGrid.astro";
 ---
 
 <BaseLayout
-  title="Projects | Your Name"
-  description="Projects built by Your Name."
+  title="Projects | Abrham Tadesse"
+  description="Projects built by Abrham Tadesse."
 >
   <Navbar />
 
@@ -38,9 +38,10 @@ import ProjectGrid from "../../components/projects/ProjectGrid.astro";
 </BaseLayout>
 
 
+
 <style>
   .projects-page {
-    padding: 9rem 0 11rem;
+    padding: 10rem 0;
   }
 
   .container {
@@ -53,71 +54,42 @@ import ProjectGrid from "../../components/projects/ProjectGrid.astro";
     display: flex;
     align-items: center;
     gap: 1rem;
-
-    margin-bottom: 5rem;
-
-    font-size: 0.75rem;
-    font-weight: 700;
+    margin-bottom: 4rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.15em;
   }
 
   .section-number span:first-child {
-    color: #888;
+    color: var(--text-muted);
   }
 
   .page-header {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 6rem;
-
-    margin-bottom: 8rem;
+    margin-bottom: 7rem;
   }
 
-  .page-header h1 {
+  h1 {
     margin: 0;
-
-    font-size: clamp(4rem, 9vw, 8rem);
-    line-height: 0.88;
-    letter-spacing: -0.065em;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
   }
 
   .page-header p {
-    max-width: 500px;
-    margin: 0;
-
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.85;
+    color: var(--text-muted);
   }
 
   @media (max-width: 800px) {
-    .projects-page {
-      padding: 7rem 0 8rem;
-    }
-
     .page-header {
       grid-template-columns: 1fr;
       gap: 2rem;
-
-      margin-bottom: 6rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .projects-page {
-      padding: 6rem 0 7rem;
-    }
-
-    .section-number {
-      margin-bottom: 3rem;
-    }
-
-    .page-header h1 {
-      font-size: clamp(3.5rem, 16vw, 6rem);
     }
   }
 </style>

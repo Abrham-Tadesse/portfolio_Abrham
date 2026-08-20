@@ -27,27 +27,27 @@ import Footer from "../../components/Footer.astro";
 
         <div class="contact-links">
 
-          <a href="mailto:your-email@example.com">
+          <a href="mailto:abrhamtadesseam@gmail.com">
             <span>Email</span>
-            <strong>your-email@example.com</strong>
+            <strong>abrhamtadesseam@gmail</strong>
           </a>
 
           <a
-            href="https://github.com/your-username"
+            href="https://github.com/Abrham-Tadesse"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span>GitHub</span>
-            <strong>github.com/your-username</strong>
+            <strong>github.com/Abrham-Tadesse</strong>
           </a>
 
           <a
-            href="https://www.linkedin.com/in/your-username/"
+            href="https://www.linkedin.com/in/linkedin/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span>LinkedIn</span>
-            <strong>linkedin.com/in/your-username</strong>
+            <strong>linkedin.com/in/linkedin</strong>
           </a>
 
         </div>
@@ -59,9 +59,11 @@ import Footer from "../../components/Footer.astro";
   <Footer />
 </BaseLayout>
 
+
+
 <style>
   .contact {
-    padding: 9rem 0;
+    padding: 10rem 0;
   }
 
   .container {
@@ -72,55 +74,64 @@ import Footer from "../../components/Footer.astro";
 
   .contact-header {
     max-width: 750px;
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
   }
 
   .eyebrow {
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
   }
 
   h1 {
-    margin-bottom: 1.5rem;
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 1;
+    margin-bottom: 2rem;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
   }
 
   .contact-header > p:last-child {
-    max-width: 650px;
-    font-size: 1.15rem;
-    line-height: 1.7;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-muted);
   }
 
   .contact-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .contact-links a {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 2rem;
-    border: 1px solid #ddd;
+    gap: 1rem;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border-color);
+    background: #ebebe5;
+    transition: all 0.3s ease;
   }
 
   .contact-links a:hover {
-    background: #f7f7f7;
+    background: var(--text-main);
+    color: var(--bg-color);
+    border-color: var(--text-main);
   }
 
   .contact-links span {
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.15em;
   }
 
   .contact-links strong {
+    font-size: 1rem;
     word-break: break-word;
   }
 

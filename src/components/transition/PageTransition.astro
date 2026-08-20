@@ -9,56 +9,48 @@
 </div>
 
 <script>
-  const transition =
-    document.querySelector(".page-transition");
+  function setupPageTransition() {
+    const transition = document.querySelector(".page-transition");
+    if (!transition) return;
 
-  if (transition) {
+    // Ensure hidden on initial load
+    transition.classList.add("is-hidden");
 
-    // Hide the transition when the first page loads
-    window.addEventListener("load", () => {
-      transition.classList.add("is-hidden");
+    // Before navigation starts: slide cover down/in
+    document.addEventListener("astro:before-preparation", () => {
+      transition.classList.remove("is-hidden");
     });
 
-    // Show transition before Astro changes pages
-    document.addEventListener(
-      "astro:before-preparation",
-      () => {
-        transition.classList.remove("is-hidden");
-      }
-    );
+    // After DOM updates: allow frame render then slide cover away
+    document.addEventListener("astro:after-swap", () => {
+      requestAnimationFrame(() => {
+        transition.classList.add("is-hidden");
+      });
+    });
 
-    // Hide transition after the new page is ready
-    document.addEventListener(
-      "astro:page-load",
-      () => {
-        requestAnimationFrame(() => {
-          transition.classList.add("is-hidden");
-        });
-      }
-    );
-
+    // Fallback safeguard to prevent sticking on loading overlay
+    document.addEventListener("astro:page-load", () => {
+      transition.classList.add("is-hidden");
+    });
   }
+
+  // Initialize lifecycle listener
+  setupPageTransition();
+  document.addEventListener("astro:after-swap", setupPageTransition);
 </script>
 
 <style>
   .page-transition {
     position: fixed;
     inset: 0;
-
     z-index: 9999;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #111;
-
+    background: #0e0e0e;
     pointer-events: none;
-
     clip-path: inset(0 0 0 0);
-
-    transition:
-      clip-path 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+    transition: clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
   .page-transition.is-hidden {
@@ -69,17 +61,15 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-
-    color: white;
-
-    font-size: 0.75rem;
-    font-weight: 700;
-
+    color: #f4f4f0;
+    font-family: var(--font-heading, 'Syne', sans-serif);
+    font-size: 0.85rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
   }
 
   .transition-number {
-    opacity: 0.4;
+    color: #666;
   }
 </style>

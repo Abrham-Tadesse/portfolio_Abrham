@@ -47,98 +47,100 @@ const {
 
 </article>
 
+
+
+
 <style>
   .project-card {
-    padding: 3rem 0;
-    border-top: 1px solid #ddd;
-    transition:
-      padding 0.3s ease,
-      transform 0.3s ease;
-  }
+    padding: 3.5rem 1rem;
+    border-top: 1px solid var(--border-color);
+    transition: background 0.3s ease;
 
-  .project-card:last-child {
-    border-bottom: 1px solid #ddd;
+    /* Scroll reveal animation */
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 20%;
   }
 
   .project-card:hover {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background: #ebebe5;
+  }
+
+  .project-card:last-child {
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .project-meta {
     display: flex;
     justify-content: space-between;
-
-    margin-bottom: 2rem;
-
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
   }
 
   .project-meta span:last-child {
-    color: #888;
-  }
-
-  .project-content {
-    max-width: 850px;
+    color: var(--text-muted);
   }
 
   h2 {
-    margin: 0 0 1.25rem;
-
-    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 4vw, 3.5rem);
     line-height: 1;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
   }
 
   p {
     max-width: 650px;
     margin: 0 0 2rem;
-
     font-size: 1.05rem;
     line-height: 1.8;
+    color: var(--text-muted);
   }
 
   .technologies {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .technologies span {
-    padding: 0.4rem 0.65rem;
-
-    border: 1px solid #ddd;
-
-    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #f4f4f0;
   }
 
   .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-
-    font-weight: 700;
-
-    transition: gap 0.2s ease;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 0.2rem;
+    transition: gap 0.25s ease;
   }
 
   .project-link:hover {
     gap: 1.2rem;
   }
 
-  @media (max-width: 600px) {
-    .project-card {
-      padding: 2rem 0;
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-
-    .project-card:hover {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

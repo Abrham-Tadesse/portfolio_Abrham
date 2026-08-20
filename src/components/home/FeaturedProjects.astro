@@ -86,11 +86,10 @@ import { projects } from "../../data/projects";
 
 
 
-
 <style>
   .featured-projects {
-    padding: 11rem 0;
-    border-top: 1px solid #d8d8d5;
+    padding: 10rem 0;
+    border-top: 1px solid var(--border-color);
   }
 
   .container {
@@ -103,71 +102,70 @@ import { projects } from "../../data/projects";
     display: flex;
     align-items: center;
     gap: 1rem;
-
-    margin-bottom: 5rem;
-
-    font-size: 0.75rem;
-    font-weight: 700;
+    margin-bottom: 4rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-  }
 
-  .section-number span:first-child {
-    color: #888;
+    /* Scroll reveal */
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 20%;
   }
 
   .section-intro {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 6rem;
+    margin-bottom: 6rem;
 
-    margin-bottom: 7rem;
+    /* Scroll reveal */
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 25%;
   }
 
   .section-intro h2 {
     margin: 0;
-
-    font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 0.95;
-    letter-spacing: -0.06em;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
   }
 
   .section-intro p {
-    max-width: 500px;
-    margin: 0;
-
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.85;
+    color: var(--text-muted);
   }
 
   .projects-list {
-    border-top: 1px solid #111;
+    border-top: 1px solid var(--border-dark);
   }
 
   .project {
     display: grid;
     grid-template-columns: 80px 1fr;
+    padding: 3.5rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.3s ease, transform 0.3s ease;
 
-    padding: 3.5rem 0;
-
-    border-bottom: 1px solid #d8d8d5;
-
-    transition:
-      padding 0.3s ease,
-      background 0.3s ease;
+    /* Individual project scroll reveal */
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 20%;
   }
 
   .project:hover {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    background: #eeeeeb;
+    background: #ebebe5;
   }
 
   .project-number {
-    color: #888;
-
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 800;
   }
 
   .project-main {
@@ -178,18 +176,15 @@ import { projects } from "../../data/projects";
 
   .project-heading h3 {
     margin: 0 0 1rem;
-
-    font-size: clamp(2rem, 4vw, 4rem);
-    line-height: 0.95;
-    letter-spacing: -0.05em;
+    font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
   }
 
   .project-heading p {
-    max-width: 600px;
-    margin: 0;
-
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
+    color: var(--text-muted);
   }
 
   .project-details {
@@ -206,83 +201,55 @@ import { projects } from "../../data/projects";
   }
 
   .technologies span {
-    padding: 0.4rem 0.65rem;
-
-    border: 1px solid #cfcfcb;
-
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-color);
     font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .project-link,
-  .all-projects a {
+  .project-link, .all-projects a {
     display: inline-flex;
     align-items: center;
-    gap: 0.7rem;
-
-    font-weight: 700;
-
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     transition: gap 0.25s ease;
   }
 
-  .project-link:hover,
-  .all-projects a:hover {
+  .project-link:hover, .all-projects a:hover {
     gap: 1.2rem;
   }
 
   .all-projects {
-    margin-top: 3rem;
+    margin-top: 4rem;
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 20%;
   }
 
   .all-projects a {
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #111;
+    border-bottom: 2px solid var(--border-dark);
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 800px) {
-    .featured-projects {
-      padding: 8rem 0;
-    }
-
-    .section-intro {
+    .section-intro, .project-main {
       grid-template-columns: 1fr;
       gap: 2rem;
-      margin-bottom: 5rem;
-    }
-
-    .project {
-      grid-template-columns: 50px 1fr;
-    }
-
-    .project-main {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .featured-projects {
-      padding: 7rem 0;
-    }
-
-    .section-number {
-      margin-bottom: 3rem;
-    }
-
-    .project {
-      padding: 2.5rem 0;
-    }
-
-    .project:hover {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-
-    .project-heading h3 {
-      font-size: 2.2rem;
     }
   }
 </style>

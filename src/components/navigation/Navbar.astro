@@ -5,7 +5,7 @@
   <div class="navbar-container">
 
     <a href="/" class="logo">
-      Your Name
+      Abrham Tadesse
     </a>
 
     <nav class="navigation" aria-label="Main navigation">
@@ -18,73 +18,81 @@
   </div>
 </header>
 
+
 <style>
   .navbar {
     width: 100%;
-    border-bottom: 1px solid #e5e5e5;
-    background: #595757;
-    position:fixed;
-    z-index: 20;
-    padding: 3rem 1rem;
-    
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(244, 244, 240, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 0;
   }
 
   .navbar-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.25rem 1.5rem;
-
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
   }
   
   .logo {
-    color: #111111;
-    font-size: 1.1rem;
-    font-size: 2.3rem;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
     font-weight: 800;
-    text-decoration: none;
-    position:fixed;
-    left: 5%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    transition: opacity 0.25s ease;
+  }
+
+  .logo:hover {
+    opacity: 0.6;
   }
   
   .navigation {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    float: right;
-    position: fixed;
-    right: 10%;
-    
+    gap: 2.5rem;
   }
 
   .navigation a {
-    color: #111111;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    /* float: right; */
-    font-size: 1.5rem;
-    }
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    position: relative;
+    padding: 0.2rem 0;
+  }
 
-  .navigation a:hover {
-    opacity: 0.55;
+  .navigation a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--text-main);
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .navigation a:hover::after {
+    width: 100%;
   }
 
   @media (max-width: 600px) {
-    .navbar-container {
-      padding: 1rem;
-    }
-
     .navigation {
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .navigation a {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
     }
   }
 </style>
