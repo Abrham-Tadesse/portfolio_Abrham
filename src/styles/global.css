@@ -1,43 +1,240 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap");
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
 
 :root {
+  /* -------------------------
+     Colors
+  ------------------------- */
+
   --bg-color: #f4f4f0;
   --text-main: #0e0e0e;
   --text-muted: #666660;
+
   --border-color: #dcdcd6;
   --border-dark: #0e0e0e;
-  --accent: #111111;
-  --font-heading: 'Syne', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* -------------------------
+     Typography
+  ------------------------- */
+
+  --font-heading: "Syne", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  /* -------------------------
+     Layout
+  ------------------------- */
+
+  --container-width: 1200px;
+  --container-padding: 1.5rem;
+
+  /* -------------------------
+     Motion
+  ------------------------- */
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --transition-fast: 0.25s ease;
+  --transition-medium: 0.35s var(--ease-out);
+  --transition-slow: 0.6s var(--ease-out);
+
+  /* -------------------------
+     Accessibility
+  ------------------------- */
+
+  --focus-ring: 2px solid var(--text-main);
 }
 
-*, *::before, *::after {
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+
   margin: 0;
   padding: 0;
 }
 
 html {
-  background-color: var(--bg-color);
+  background: var(--bg-color);
   color: var(--text-main);
+
   font-family: var(--font-body);
   font-size: 16px;
-  scroll-behavior: smooth;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    var(--text-muted)
+    var(--bg-color);
 }
 
 body {
   min-height: 100vh;
+
   overflow-x: hidden;
+
+  background: var(--bg-color);
+  color: var(--text-main);
+
+  font-family: var(--font-body);
+
   line-height: 1.6;
 }
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+
+  font-weight: 800;
+
+  color: var(--text-main);
+
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background: var(--text-main);
+  color: var(--bg-color);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+   ========================================================= */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 5px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-main);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  html {
+    font-size: 15px;
+  }
 }

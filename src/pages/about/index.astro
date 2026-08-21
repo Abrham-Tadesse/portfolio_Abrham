@@ -12,10 +12,24 @@ import Footer from "../../components/Footer.astro";
 >
   <Navbar />
 
-  <main>
-    <AboutIntro />
+  <main class="about-page">
+    <div class="container">
+      <div class="section-number">
+        <span>01</span>
+        <span>About</span>
+      </div>
 
-    <Skills />
+      <header class="about-header">
+        <h1>Building thoughtful digital tools.</h1>
+        <p>
+          I'm a software developer passionate about building performant, 
+          scalable applications and solving complex problems with technology.
+        </p>
+      </header>
+
+      <AboutIntro />
+      <Skills />
+    </div>
   </main>
 
   <Footer />
@@ -24,72 +38,163 @@ import Footer from "../../components/Footer.astro";
 
 <style>
   .about-page {
-    padding: 10rem 0;
+    min-height: 100vh;
+    padding: clamp(10rem, 15vw, 14rem) 0 clamp(7rem, 12vw, 11rem);
   }
 
   .container {
-    max-width: 1200px;
+    width: min(1200px, calc(100% - 3rem));
     margin: 0 auto;
-    padding: 0 1.5rem;
   }
+
+  /* -------------------------
+     Section label
+  ------------------------- */
 
   .section-number {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 4rem;
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
+
+    margin-bottom: clamp(3.5rem, 7vw, 6rem);
+
+    font-family: var(--font-heading, "Syne", sans-serif);
+    font-size: 0.72rem;
     font-weight: 800;
+
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
   }
+
+  .section-number::after {
+    content: "";
+
+    width: 3rem;
+    height: 1px;
+
+    background: var(--border-color, #dcdcd6);
+  }
+
+  .section-number span:first-child {
+    color: var(--text-muted, #666660);
+  }
+
+  .section-number span:last-child {
+    color: var(--text-main, #0e0e0e);
+  }
+
+  /* -------------------------
+     Page introduction
+  ------------------------- */
 
   .about-header {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 6rem;
-    margin-bottom: 8rem;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+
+    gap: clamp(3rem, 8vw, 9rem);
+
+    margin-bottom: clamp(6rem, 11vw, 10rem);
+    padding-bottom: clamp(4rem, 7vw, 6rem);
+
+    border-bottom: 1px solid var(--border-color, #dcdcd6);
+
+    align-items: end;
   }
 
   .about-header h1 {
+    max-width: 850px;
+
     margin: 0;
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    line-height: 0.9;
-    letter-spacing: -0.05em;
+
+    font-family: var(--font-heading, "Syne", sans-serif);
+    font-size: clamp(3.2rem, 7vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+
+    text-wrap: balance;
   }
 
   .about-header p {
-    font-size: 1.15rem;
-    line-height: 1.85;
-    color: var(--text-muted);
-  }
+    max-width: 390px;
 
-  .about-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 4rem;
-    padding: 4rem 0;
-    border-top: 1px solid var(--border-color);
-  }
-
-  .about-section h2 {
     margin: 0;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
+    padding-bottom: 0.4rem;
+
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.85;
+
+    color: var(--text-muted, #666660);
   }
 
-  .about-section-content p {
-    margin: 0 0 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.9;
+  /* -------------------------
+     Content below introduction
+  ------------------------- */
+
+  .about-page :global(.about-preview),
+  .about-page :global(.skills) {
+    border-top: 0;
   }
 
-  @media (max-width: 800px) {
-    .about-header, .about-section {
+  /* Prevent nested components from
+     creating excessive horizontal spacing */
+  .about-page :global(.about-preview .container),
+  .about-page :global(.skills .container) {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  /* -------------------------
+     Responsive
+  ------------------------- */
+
+  @media (max-width: 900px) {
+    .about-header {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-header p {
+      max-width: 600px;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .about-page {
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+    }
+
+    .container {
+      width: min(100% - 2rem, 1200px);
+    }
+
+    .section-number {
+      margin-bottom: 3rem;
+    }
+
+    .about-header {
+      margin-bottom: 5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .about-header h1 {
+      font-size: clamp(3rem, 14vw, 5rem);
+      line-height: 0.94;
+    }
+
+    .about-header p {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-header {
+      scroll-behavior: auto;
     }
   }
 </style>

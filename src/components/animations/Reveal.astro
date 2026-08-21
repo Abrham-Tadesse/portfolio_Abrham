@@ -20,7 +20,8 @@ const {
 <style>
   .reveal {
     opacity: 0;
-    transform: translateY(60px);
+
+    transform: translateY(50px);
 
     transition:
       opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
@@ -44,24 +45,32 @@ const {
 </style>
 
 <script>
-  const reveals = document.querySelectorAll(".reveal");
+  function initReveal() {
+    const reveals = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+    if (!reveals.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
           entry.target.classList.add("visible");
 
           observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-    }
-  );
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
 
-  reveals.forEach((element) => {
-    observer.observe(element);
-  });
+    reveals.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
+  initReveal();
+
+  document.addEventListener("astro:page-load", initReveal);
 </script>

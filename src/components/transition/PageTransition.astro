@@ -1,75 +1,117 @@
----
----
-
 <div class="page-transition" aria-hidden="true">
   <div class="transition-content">
     <span class="transition-number">00</span>
-    <span class="transition-label">Loading</span>
+    <span>Loading</span>
   </div>
 </div>
-
-<script>
-  function setupPageTransition() {
-    const transition = document.querySelector(".page-transition");
-    if (!transition) return;
-
-    // Ensure hidden on initial load
-    transition.classList.add("is-hidden");
-
-    // Before navigation starts: slide cover down/in
-    document.addEventListener("astro:before-preparation", () => {
-      transition.classList.remove("is-hidden");
-    });
-
-    // After DOM updates: allow frame render then slide cover away
-    document.addEventListener("astro:after-swap", () => {
-      requestAnimationFrame(() => {
-        transition.classList.add("is-hidden");
-      });
-    });
-
-    // Fallback safeguard to prevent sticking on loading overlay
-    document.addEventListener("astro:page-load", () => {
-      transition.classList.add("is-hidden");
-    });
-  }
-
-  // Initialize lifecycle listener
-  setupPageTransition();
-  document.addEventListener("astro:after-swap", setupPageTransition);
-</script>
 
 <style>
   .page-transition {
     position: fixed;
     inset: 0;
     z-index: 9999;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: #0e0e0e;
+    color: #f4f4f0;
+
     pointer-events: none;
-    clip-path: inset(0 0 0 0);
-    transition: clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+
+    clip-path: inset(0 0 100% 0);
+
+    transition:
+      clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+
+    will-change: clip-path;
   }
 
-  .page-transition.is-hidden {
-    clip-path: inset(0 0 100% 0);
+  .page-transition.is-visible {
+    clip-path: inset(0 0 0 0);
   }
 
   .transition-content {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #f4f4f0;
-    font-family: var(--font-heading, 'Syne', sans-serif);
+
+    font-family: var(--font-heading, "Syne", sans-serif);
     font-size: 0.85rem;
     font-weight: 800;
+
     text-transform: uppercase;
     letter-spacing: 0.2em;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  .is-visible .transition-content {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .transition-number {
     color: #666;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-transition {
+      transition: none;
+    }
+
+    .transition-content {
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  const showLoader = () => {
+    const loader = document.querySelector(".page-transition");
+
+    if (!loader) return;
+
+    loader.classList.add("is-visible");
+  };
+
+  const hideLoader = () => {
+    const loader = document.querySelector(".page-transition");
+
+    if (!loader) return;
+
+    loader.classList.remove("is-visible");
+  };
+
+  /*
+   * Initial page load
+   */
+  hideLoader();
+
+  /*
+   * Astro starts preparing a new page.
+   * Show the transition.
+   */
+  document.addEventListener("astro:before-preparation", showLoader);
+
+  /*
+   * New page has been swapped into the document.
+   * Hide the transition.
+   */
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo(0, 0);
+    hideLoader();
+  });
+
+  /*
+   * Astro has finished loading the new page.
+   * This is our final safety net.
+   */
+  document.addEventListener("astro:page-load", hideLoader);
+</script>
