@@ -6,195 +6,32 @@ import Skills from "../../components/about/Skills.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<BaseLayout
-  title="About | Abrham Tadesse"
-  description="Learn more about Abrham Tadesse, a software developer."
->
+<BaseLayout title="About | Abrham Tadesse" description="Learn more about Abrham Tadesse, a software developer.">
   <Navbar />
-
-  <main class="about-page">
-    <div class="container">
-      <div class="section-number">
-        <span>01</span>
-        <span>About</span>
+  <main class="min-h-screen py-[clamp(10rem,15vw,14rem)] pb-[clamp(7rem,12vw,11rem)] max-[650px]:py-32 max-[650px]:pb-20">
+    <div class="mx-auto w-[min(1200px,calc(100%-3rem))] max-[650px]:w-[min(100%-2rem,1200px)]">
+      <div class="section-number mb-[clamp(3.5rem,7vw,6rem)] flex items-center gap-4 font-heading text-[0.72rem] font-extrabold uppercase tracking-[0.18em] max-[650px]:mb-12">
+        <span class="text-muted">01</span><span class="text-ink">About</span>
       </div>
 
-      <header class="about-header">
-        <h1>Building thoughtful digital tools.</h1>
-        <p>
-          I'm a software developer passionate about building performant, 
-          scalable applications and solving complex problems with technology.
+      <header class="mb-[clamp(6rem,11vw,10rem)] grid grid-cols-[minmax(0,1.35fr)_minmax(260px,0.65fr)] items-end gap-[clamp(3rem,8vw,9rem)] border-b border-line pb-[clamp(4rem,7vw,6rem)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[900px]:gap-10 max-[650px]:mb-20 max-[650px]:pb-14">
+        <h1 class="m-0 max-w-[850px] text-[clamp(3.2rem,7vw,7rem)] font-extrabold leading-[0.92] tracking-[-0.06em] text-balance max-[650px]:text-[clamp(3rem,14vw,5rem)] max-[650px]:leading-[0.94]">Building thoughtful digital tools.</h1>
+        <p class="max-w-[390px] pb-1 text-[clamp(1rem,1.2vw,1.15rem)] leading-[1.85] text-muted max-[900px]:max-w-[600px] max-[900px]:pb-0 max-[650px]:text-base max-[650px]:leading-[1.75]">
+          I'm a software developer passionate about building performant, scalable applications and solving complex problems with technology.
         </p>
       </header>
-
-      <AboutIntro />
-      <Skills />
+      <div class="about-components">
+        <AboutIntro />
+        <Skills />
+      </div>
     </div>
   </main>
-
   <Footer />
 </BaseLayout>
 
-
 <style>
-  .about-page {
-    min-height: 100vh;
-    padding: clamp(10rem, 15vw, 14rem) 0 clamp(7rem, 12vw, 11rem);
-  }
-
-  .container {
-    width: min(1200px, calc(100% - 3rem));
-    margin: 0 auto;
-  }
-
-  /* -------------------------
-     Section label
-  ------------------------- */
-
-  .section-number {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    margin-bottom: clamp(3.5rem, 7vw, 6rem);
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.72rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .section-number::after {
-    content: "";
-
-    width: 3rem;
-    height: 1px;
-
-    background: var(--border-color, #dcdcd6);
-  }
-
-  .section-number span:first-child {
-    color: var(--text-muted, #666660);
-  }
-
-  .section-number span:last-child {
-    color: var(--text-main, #0e0e0e);
-  }
-
-  /* -------------------------
-     Page introduction
-  ------------------------- */
-
-  .about-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-
-    gap: clamp(3rem, 8vw, 9rem);
-
-    margin-bottom: clamp(6rem, 11vw, 10rem);
-    padding-bottom: clamp(4rem, 7vw, 6rem);
-
-    border-bottom: 1px solid var(--border-color, #dcdcd6);
-
-    align-items: end;
-  }
-
-  .about-header h1 {
-    max-width: 850px;
-
-    margin: 0;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: clamp(3.2rem, 7vw, 7rem);
-    line-height: 0.92;
-    letter-spacing: -0.06em;
-    font-weight: 800;
-
-    text-wrap: balance;
-  }
-
-  .about-header p {
-    max-width: 390px;
-
-    margin: 0;
-    padding-bottom: 0.4rem;
-
-    font-size: clamp(1rem, 1.2vw, 1.15rem);
-    line-height: 1.85;
-
-    color: var(--text-muted, #666660);
-  }
-
-  /* -------------------------
-     Content below introduction
-  ------------------------- */
-
-  .about-page :global(.about-preview),
-  .about-page :global(.skills) {
-    border-top: 0;
-  }
-
-  /* Prevent nested components from
-     creating excessive horizontal spacing */
-  .about-page :global(.about-preview .container),
-  .about-page :global(.skills .container) {
-    width: 100%;
-    max-width: none;
-    padding: 0;
-  }
-
-  /* -------------------------
-     Responsive
-  ------------------------- */
-
-  @media (max-width: 900px) {
-    .about-header {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .about-header p {
-      max-width: 600px;
-      padding-bottom: 0;
-    }
-  }
-
-  @media (max-width: 650px) {
-    .about-page {
-      padding-top: 8rem;
-      padding-bottom: 5rem;
-    }
-
-    .container {
-      width: min(100% - 2rem, 1200px);
-    }
-
-    .section-number {
-      margin-bottom: 3rem;
-    }
-
-    .about-header {
-      margin-bottom: 5rem;
-      padding-bottom: 3.5rem;
-    }
-
-    .about-header h1 {
-      font-size: clamp(3rem, 14vw, 5rem);
-      line-height: 0.94;
-    }
-
-    .about-header p {
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .about-header {
-      scroll-behavior: auto;
-    }
-  }
+  .section-number span:last-child { color: var(--text-main); }
+  .section-number::after { content: ""; width: 3rem; height: 1px; background: var(--border-color); }
+  .about-components :global(.about-preview), .about-components :global(.skills) { border-top: 0; }
+  .about-components :global(.about-preview > div), .about-components :global(.skills > div) { width: 100%; max-width: none; }
 </style>

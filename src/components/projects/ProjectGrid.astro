@@ -3,7 +3,7 @@ import { projects } from "../../data/projects";
 import ProjectCard from "./ProjectCard.astro";
 ---
 
-<div class="projects-grid">
+<div class="grid w-full grid-cols-1 border-t border-ink">
 
   {projects.map((project) => (
     <ProjectCard
@@ -16,16 +16,3 @@ import ProjectCard from "./ProjectCard.astro";
   ))}
 
 </div>
-
-
-
-<style>
-  .projects-grid {
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr;
-
-    border-top: 1px solid var(--border-dark);
-  }
-</style>

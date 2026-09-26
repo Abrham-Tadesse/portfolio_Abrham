@@ -1,47 +1,5 @@
-<footer class="footer">
-  <div class="container">
-    <p>© 2026 Abrham Tadesse. All rights reserved.</p>
+<footer class="relative overflow-hidden border-t border-white/10 bg-ink py-8 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-paper/40 max-[600px]:py-7 max-[600px]:text-[0.6rem] max-[600px]:tracking-[0.11em]">
+  <div class="mx-auto w-[min(1200px,calc(100%-3rem))] max-[600px]:w-[min(100%-2rem,1200px)]">
+    <p class="text-center">© 2026 Abrham Tadesse. All rights reserved.</p>
   </div>
 </footer>
-
-<style>
-  .footer {
-    position: relative;
-    padding: 2rem 0;
-
-    background: var(--text-main, #0e0e0e);
-    color: rgba(244, 244, 240, 0.4);
-
-    border-top: 1px solid rgba(244, 244, 240, 0.12);
-
-    font-family: var(--font-body, inherit);
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-
-    overflow: hidden;
-  }
-
-  .container {
-    width: min(1200px, calc(100% - 3rem));
-    margin: 0 auto;
-  }
-
-  .footer p {
-    margin: 0;
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .footer {
-      padding: 1.75rem 0;
-      font-size: 0.6rem;
-      letter-spacing: 0.11em;
-    }
-
-    .container {
-      width: min(100% - 2rem, 1200px);
-    }
-  }
-</style>

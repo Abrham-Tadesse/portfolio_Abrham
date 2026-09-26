@@ -1,139 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navbar from "../../components/navigation/Navbar.astro";
-import Footer from "../../components/Footer.astro";
-import ProjectGrid from "../../components/projects/ProjectGrid.astro";
-import ContactCTA from "../../components/home/ContactCTA.astro";
+import Navbar from "../navigation/Navbar.astro";
+import Footer from "../Footer.astro";
+import ProjectGrid from "./ProjectGrid.astro";
+import ContactCTA from "../home/ContactCTA.astro";
 ---
 
-<BaseLayout
-  title="Projects | Your Name"
-  description="Projects built by Your Name."
->
+<BaseLayout title="Projects | Your Name" description="Projects built by Your Name.">
   <Navbar />
-
   <main>
-
-    <section class="projects-page">
-
-      <div class="container">
-
-        <div class="section-number">
-          <span>03</span>
-          <span>Projects</span>
+    <section class="py-32 pb-40 max-[800px]:py-24 max-[800px]:pb-28 max-[600px]:py-20 max-[600px]:pb-24">
+      <div class="mx-auto max-w-[1200px] px-6 max-[600px]:px-4">
+        <div class="mb-20 flex items-center gap-4 text-[0.8rem] font-bold uppercase tracking-[0.12em] max-[600px]:mb-12">
+          <span class="text-[#888]">03</span><span class="text-ink">Projects</span>
         </div>
-
-        <header class="page-header">
-
-          <h1>
-            Things I've built.
-          </h1>
-
-          <p>
-            A collection of projects I've built while learning,
-            experimenting, and solving practical problems.
-          </p>
-
+        <header class="mb-28 grid grid-cols-[1.2fr_0.8fr] gap-24 max-[800px]:mb-20 max-[800px]:grid-cols-1 max-[800px]:gap-8">
+          <h1 class="m-0 text-[clamp(3.5rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-[-0.05em] max-[600px]:text-[clamp(3rem,15vw,5rem)]">Things I've built.</h1>
+          <p class="max-w-[500px] text-[1.1rem] leading-[1.8]">A collection of projects I've built while learning, experimenting, and solving practical problems.</p>
         </header>
-
         <ProjectGrid />
-
       </div>
-
     </section>
-
     <ContactCTA />
-
   </main>
-
   <Footer />
-
 </BaseLayout>
-
-<style>
-  .projects-page {
-    padding: 8rem 0 10rem;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .section-number {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    margin-bottom: 5rem;
-
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .section-number span:first-child {
-    color: #888;
-  }
-
-  .section-number span:last-child {
-    color: #111;
-  }
-
-  .page-header {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 6rem;
-
-    margin-bottom: 7rem;
-  }
-
-  h1 {
-    margin: 0;
-
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    line-height: 0.9;
-    letter-spacing: -0.05em;
-  }
-
-  .page-header p {
-    max-width: 500px;
-    margin: 0;
-
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-
-  @media (max-width: 800px) {
-    .projects-page {
-      padding: 6rem 0 7rem;
-    }
-
-    .page-header {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-
-      margin-bottom: 5rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .projects-page {
-      padding: 5rem 0 6rem;
-    }
-
-    .section-number {
-      margin-bottom: 3rem;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 15vw, 5rem);
-    }
-  }
-</style>

@@ -1,121 +1,65 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap");
+@import "tailwindcss";
 
-/* =========================================================
-   DESIGN TOKENS
-   ========================================================= */
-
-:root {
-  /* -------------------------
-     Colors
-  ------------------------- */
-
-  --bg-color: #f4f4f0;
-  --text-main: #0e0e0e;
-  --text-muted: #666660;
-
-  --border-color: #dcdcd6;
-  --border-dark: #0e0e0e;
-
-  /* -------------------------
-     Typography
-  ------------------------- */
-
-  --font-heading: "Syne", sans-serif;
-  --font-body: "Plus Jakarta Sans", sans-serif;
-
-  /* -------------------------
-     Layout
-  ------------------------- */
-
-  --container-width: 1200px;
-  --container-padding: 1.5rem;
-
-  /* -------------------------
-     Motion
-  ------------------------- */
-
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --transition-fast: 0.25s ease;
-  --transition-medium: 0.35s var(--ease-out);
-  --transition-slow: 0.6s var(--ease-out);
-
-  /* -------------------------
-     Accessibility
-  ------------------------- */
-
-  --focus-ring: 2px solid var(--text-main);
+@theme {
+  --color-ink: #111111;
+  --color-paper: #f7f7f2;
+  --color-line: #d8d8d0;
+  --color-muted: #72726d;
+  --font-heading: "Arial", "Helvetica Neue", sans-serif;
+  --font-sans: "Arial", "Helvetica Neue", sans-serif;
 }
 
+:root {
+  color-scheme: light;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-/* =========================================================
-   RESET
-   ========================================================= */
+  --text-main: #111111;
+  --text-muted: #72726d;
+  --bg-color: #f7f7f2;
+  --border-color: #d8d8d0;
+  --border-dark: #111111;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-
-  margin: 0;
-  padding: 0;
 }
 
 html {
-  background: var(--bg-color);
-  color: var(--text-main);
-
-  font-family: var(--font-body);
-  font-size: 16px;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  text-rendering: optimizeLegibility;
-
+  min-width: 320px;
   scroll-behavior: smooth;
-
-  scrollbar-width: thin;
-  scrollbar-color:
-    var(--text-muted)
-    var(--bg-color);
+  background: var(--bg-color);
 }
 
 body {
+  min-width: 320px;
   min-height: 100vh;
-
-  overflow-x: hidden;
-
+  margin: 0;
   background: var(--bg-color);
   color: var(--text-main);
-
-  font-family: var(--font-body);
-
-  line-height: 1.6;
 }
 
-
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-
-  font-weight: 800;
-
-  color: var(--text-main);
-
-  text-transform: uppercase;
+body,
+button,
+a {
+  font-family: var(--font-sans);
 }
 
-p {
-  margin: 0;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }
 
 ::selection {
@@ -123,118 +67,8 @@ p {
   color: var(--bg-color);
 }
 
-
-/* =========================================================
-   LINKS
-   ========================================================= */
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-
-/* =========================================================
-   MEDIA
-   ========================================================= */
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-img {
-  height: auto;
-}
-
-
-/* =========================================================
-   FORMS
-   ========================================================= */
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  color: inherit;
-}
-
-
-/* =========================================================
-   KEYBOARD ACCESSIBILITY
-   ========================================================= */
-
-:focus {
-  outline: none;
-}
-
-:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 5px;
-}
-
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-color);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-main);
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-
-    transition-duration: 0.01ms !important;
-
-    scroll-behavior: auto !important;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-  :root {
-    --container-padding: 1rem;
-  }
-
-  html {
-    font-size: 15px;
   }
 }

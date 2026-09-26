@@ -3,146 +3,23 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/navigation/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import ProjectGrid from "../../components/projects/ProjectGrid.astro";
-
-
 ---
 
-<BaseLayout
-  title="Projects | Abrham Tadesse"
-  description="Projects built by Abrham Tadesse."
->
+<BaseLayout title="Projects | Abrham Tadesse" description="Projects built by Abrham Tadesse.">
   <Navbar />
-
   <main>
-    <section class="projects-page">
-      <div class="container">
-
-        <header class="page-header">
-          <p class="eyebrow">My Work</p>
-
-          <h1>Projects</h1>
-
-          <p>
-            A collection of software projects I've built while learning,
-            experimenting, and solving practical problems.
+    <section class="min-h-screen py-[clamp(10rem,15vw,14rem)] pb-[clamp(7rem,12vw,11rem)] max-[650px]:py-32 max-[650px]:pb-20">
+      <div class="mx-auto w-[min(1200px,calc(100%-3rem))] max-[650px]:w-[min(100%-2rem,1200px)]">
+        <header class="mb-28 grid grid-cols-[1.2fr_0.8fr] gap-x-24 gap-y-12 max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[650px]:mb-20">
+          <p class="col-span-full m-0 flex items-center gap-4 font-heading text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-muted max-[900px]:col-span-1 max-[650px]:mb-1">My Work <span class="inline-block h-px w-12 bg-line"></span></p>
+          <h1 class="col-start-1 m-0 text-[clamp(3.5rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-[-0.05em] max-[650px]:text-[clamp(3.5rem,17vw,6rem)]">Projects</h1>
+          <p class="col-start-2 row-start-2 self-end text-[1.15rem] leading-[1.85] text-muted max-[900px]:col-start-1 max-[900px]:row-start-auto max-[900px]:max-w-[600px] max-[650px]:text-base max-[650px]:leading-[1.75]">
+            A collection of software projects I've built while learning, experimenting, and solving practical problems.
           </p>
         </header>
-
         <ProjectGrid />
-
       </div>
     </section>
   </main>
-
   <Footer />
 </BaseLayout>
-
-
-
-
-<style>
-  .projects-page {
-    min-height: 100vh;
-    padding: clamp(10rem, 15vw, 14rem) 0 clamp(7rem, 12vw, 11rem);
-  }
-
-  .container {
-    width: min(1200px, calc(100% - 3rem));
-    margin: 0 auto;
-  }
-
-  /* -------------------------
-     Page header
-  ------------------------- */
-
-  .page-header {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  column-gap: 6rem;
-  row-gap: 3rem;
-  margin-bottom: 7rem;
-}
-
-  .page-header .eyebrow {
-  grid-column: 1 / -1;
-  margin: 0;
-}
-
-  .page-header h1 {
-  grid-column: 1;
-  margin: 0;
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-}
-.page-header > p:last-child {
-  grid-column: 2;
-  align-self: end;
-  margin: 0;
-  font-size: 1.15rem;
-  line-height: 1.85;
-  color: var(--text-muted);
-}
-
-
-
-
-
-  
-  /* -------------------------
-     Project grid
-  ------------------------- */
-
-  .projects-page :global(.project-grid) {
-    width: 100%;
-  }
-
-  /* -------------------------
-     Responsive
-  ------------------------- */
-
-  @media (max-width: 900px) {
-    .page-header {
-      grid-template-columns: 1fr;
-
-      gap: 2.5rem;
-
-      align-items: start;
-    }
-
-    .page-header > p:last-child {
-      max-width: 600px;
-      padding-bottom: 0;
-    }
-  }
-
-  @media (max-width: 650px) {
-    .projects-page {
-      padding-top: 8rem;
-      padding-bottom: 5rem;
-    }
-
-    .container {
-      width: min(100% - 2rem, 1200px);
-    }
-
-    .page-header {
-      margin-bottom: 5rem;
-      padding-bottom: 3.5rem;
-    }
-
-    .eyebrow {
-      margin-bottom: 1.25rem;
-    }
-
-    h1 {
-      font-size: clamp(3.5rem, 17vw, 6rem);
-      line-height: 0.9;
-    }
-
-    .page-header > p:last-child {
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-  }
-</style>

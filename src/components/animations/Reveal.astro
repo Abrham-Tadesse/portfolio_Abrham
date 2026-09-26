@@ -11,36 +11,16 @@ const {
 ---
 
 <div
-  class={`reveal ${className}`}
+  class={`reveal translate-y-[50px] opacity-0 transition-[opacity,transform] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-[var(--delay)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${className}`}
   style={`--delay: ${delay}ms`}
 >
   <slot />
 </div>
 
 <style>
-  .reveal {
-    opacity: 0;
-
-    transform: translateY(50px);
-
-    transition:
-      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-
-    transition-delay: var(--delay);
-  }
-
   .reveal.visible {
-    opacity: 1;
     transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
+    opacity: 1;
   }
 </style>
 

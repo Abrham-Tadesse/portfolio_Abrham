@@ -1,240 +1,59 @@
 ---
 ---
 
-<section class="contact-cta">
-  <div class="container">
-
-    <p class="eyebrow">Contact</p>
-
-    <h2>
-      Have a project in mind?
-    </h2>
-
-    <p class="description">
-      I'm interested in building useful software, solving real problems,
-      and working on challenging technical projects.
+<section class="contact-cta relative overflow-hidden bg-ink py-[clamp(8rem,15vw,13rem)] text-paper max-[650px]:py-28">
+  <div class="relative z-10 mx-auto w-[min(1000px,calc(100%-3rem))] max-[650px]:w-[min(100%-2rem,1000px)]">
+    <p class="eyebrow mb-8 flex items-center gap-4 font-heading text-[0.72rem] font-extrabold uppercase tracking-[0.2em] text-paper/50 max-[650px]:mb-6">Contact</p>
+    <h2 class="mb-10 max-w-[850px] text-[clamp(3.2rem,8vw,7.5rem)] font-extrabold leading-[0.92] tracking-[-0.06em] text-balance text-paper max-[650px]:mb-8 max-[650px]:text-[clamp(3rem,15vw,5rem)] max-[650px]:leading-[0.94]">Have a project in mind?</h2>
+    <p class="mb-14 max-w-[570px] text-[clamp(1rem,1.25vw,1.15rem)] leading-[1.85] text-paper/60 max-[650px]:mb-12 max-[650px]:text-base max-[650px]:leading-[1.75]">
+      I'm interested in building useful software, solving real problems, and working on challenging technical projects.
     </p>
-
-    <a href="/contact" class="contact-link">
+    <a href="/contact" class="contact-link relative inline-flex items-center gap-3 pb-[0.65rem] font-heading text-xs font-extrabold uppercase tracking-[0.14em] text-paper transition-all duration-300 hover:gap-5">
       Get in touch →
     </a>
-
   </div>
 </section>
 
-
-
-
 <style>
-  .contact-cta {
-    position: relative;
-    padding: clamp(8rem, 15vw, 13rem) 0;
-
-    background: var(--text-main, #0e0e0e);
-    color: var(--bg-color, #f4f4f0);
-
-    overflow: hidden;
-  }
-
   .contact-cta::before {
     content: "";
-
     position: absolute;
     top: 0;
     right: 8%;
-
     width: 1px;
     height: 100%;
-
-    background: rgba(244, 244, 240, 0.08);
+    background: rgb(244 244 240 / 8%);
   }
-
   .contact-cta::after {
     content: "";
-
     position: absolute;
     top: 15%;
     right: -8rem;
-
     width: 22rem;
     height: 22rem;
-
-    border: 1px solid rgba(244, 244, 240, 0.08);
+    border: 1px solid rgb(244 244 240 / 8%);
     border-radius: 50%;
-
     pointer-events: none;
   }
-
-  .container {
-    position: relative;
-    z-index: 1;
-
-    width: min(1000px, calc(100% - 3rem));
-    margin: 0 auto;
-  }
-
-  /* -------------------------
-     Eyebrow
-  ------------------------- */
-
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    margin: 0 0 2rem;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-
-    color: rgba(244, 244, 240, 0.5);
-  }
-
   .eyebrow::after {
     content: "";
-
     width: 3rem;
     height: 1px;
-
-    background: rgba(244, 244, 240, 0.25);
+    background: rgb(244 244 240 / 25%);
   }
-
-  /* -------------------------
-     Heading
-  ------------------------- */
-
-  h2 {
-    max-width: 850px;
-
-    margin: 0 0 2.5rem;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: clamp(3.2rem, 8vw, 7.5rem);
-    line-height: 0.92;
-    letter-spacing: -0.06em;
-    font-weight: 800;
-
-    text-wrap: balance;
-  }
-
-  /* -------------------------
-     Description
-  ------------------------- */
-
-  .description {
-    max-width: 570px;
-
-    margin: 0 0 3.5rem;
-
-    font-size: clamp(1rem, 1.25vw, 1.15rem);
-    line-height: 1.85;
-
-    color: rgba(244, 244, 240, 0.6);
-  }
-
-  /* -------------------------
-     Contact link
-  ------------------------- */
-
-  .contact-link {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-
-    padding-bottom: 0.65rem;
-
-    color: var(--bg-color, #f4f4f0);
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-
-    transition:
-      gap 0.35s ease,
-      color 0.35s ease;
-  }
-
   .contact-link::after {
     content: "";
-
     position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
+    inset: auto 0 0;
     height: 1px;
-
     background: currentColor;
-
     transform-origin: right;
-
     transition: transform 0.35s ease;
   }
-
-  .contact-link:hover {
-    gap: 1.35rem;
-  }
-
-  .contact-link:hover::after {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-
-  /* -------------------------
-     Responsive
-  ------------------------- */
-
+  .contact-link:hover::after { transform: scaleX(0); transform-origin: left; }
   @media (max-width: 650px) {
-    .contact-cta {
-      padding: 7rem 0;
-    }
-
-    .container {
-      width: min(100% - 2rem, 1000px);
-    }
-
-    .eyebrow {
-      margin-bottom: 1.5rem;
-    }
-
-    h2 {
-      font-size: clamp(3rem, 15vw, 5rem);
-      line-height: 0.94;
-      margin-bottom: 2rem;
-    }
-
-    .description {
-      margin-bottom: 3rem;
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .contact-cta::before {
-      right: 5%;
-    }
-
-    .contact-cta::after {
-      width: 14rem;
-      height: 14rem;
-      right: -7rem;
-      top: 5%;
-    }
+    .contact-cta::before { right: 5%; }
+    .contact-cta::after { top: 5%; right: -7rem; width: 14rem; height: 14rem; }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .contact-link {
-      transition: none;
-    }
-
-    .contact-link::after {
-      transition: none;
-    }
-  }
+  @media (prefers-reduced-motion: reduce) { .contact-link, .contact-link::after { transition: none; } }
 </style>

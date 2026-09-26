@@ -2,559 +2,72 @@
 import { projects } from "../../data/projects";
 ---
 
-<section class="featured-projects">
-  <div class="container">
-
-    <div class="section-number">
-      <span>03</span>
-      <span>Selected Work</span>
+<section class="relative overflow-hidden border-t border-line py-[clamp(7rem,12vw,11rem)] max-[650px]:py-[5.5rem]">
+  <div class="mx-auto w-[min(1200px,calc(100%-3rem))] max-[650px]:w-[min(100%-2rem,1200px)]">
+    <div class="section-number scroll-reveal mb-[clamp(3.5rem,7vw,6rem)] flex items-center gap-4 font-heading text-[0.72rem] font-extrabold uppercase tracking-[0.18em] max-[650px]:mb-12">
+      <span class="text-muted">03</span><span class="text-ink">Selected Work</span>
     </div>
 
-    <div class="section-intro">
-      <h2>
-        Projects I've built.
-      </h2>
-
-      <p>
-        A selection of applications I've developed while learning,
-        experimenting, and solving practical problems.
+    <div class="section-intro scroll-reveal mb-[clamp(4rem,8vw,7rem)] grid grid-cols-[minmax(0,1.35fr)_minmax(260px,0.65fr)] items-start gap-[clamp(3rem,8vw,9rem)] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[650px]:mb-16">
+      <h2 class="m-0 max-w-[850px] text-[clamp(2.8rem,6vw,5.8rem)] font-extrabold leading-[0.98] tracking-[-0.055em] text-balance max-[650px]:text-[clamp(2.5rem,12vw,4rem)]">Projects I've built.</h2>
+      <p class="max-w-[390px] pt-[0.6rem] text-[clamp(1rem,1.2vw,1.15rem)] leading-[1.8] text-muted max-[900px]:max-w-[600px] max-[900px]:pt-0">
+        A selection of applications I've developed while learning, experimenting, and solving practical problems.
       </p>
     </div>
 
-    <div class="projects-list">
+    <div class="border-t border-ink">
+      {projects.filter((project) => project.featured).map((project, index) => (
+        <article class="project scroll-reveal group relative grid grid-cols-[80px_minmax(0,1fr)] border-b border-line px-4 py-[clamp(2.5rem,5vw,4.5rem)] transition-[padding,color] duration-300 max-[650px]:grid-cols-1 max-[650px]:gap-6 max-[650px]:px-0 max-[650px]:py-10 max-[650px]:hover:px-4">
+          <div class="absolute inset-0 z-0 origin-bottom scale-y-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"></div>
+          <div class="project-number relative z-10 pt-1 font-heading text-[0.72rem] font-extrabold tracking-[0.1em] text-muted transition-colors duration-300 group-hover:text-paper/55">
+            {String(index + 1).padStart(2, "0")}
+          </div>
 
-      {
-        projects
-          .filter((project) => project.featured)
-          .map((project, index) => (
-            <article class="project">
+          <div class="relative z-10 grid grid-cols-[minmax(0,1fr)_minmax(220px,0.7fr)] gap-[clamp(3rem,7vw,7rem)] max-[900px]:grid-cols-1 max-[900px]:gap-10">
+            <div>
+              <h3 class="mb-5 text-[clamp(2rem,3.8vw,3.5rem)] font-extrabold leading-[0.98] tracking-[-0.045em] transition-colors duration-300 group-hover:text-paper">{project.title}</h3>
+              <p class="max-w-[600px] text-base leading-[1.8] text-muted transition-colors duration-300 group-hover:text-paper/65">{project.description}</p>
+            </div>
 
-              <div class="project-number">
-                {String(index + 1).padStart(2, "0")}
+            <div class="flex flex-col items-start justify-between gap-10 max-[900px]:gap-8">
+              <div class="flex flex-wrap gap-x-4 gap-y-2">
+                {project.technologies.map((technology) => (
+                  <span class="technology relative text-[0.7rem] font-bold uppercase tracking-[0.1em] text-muted transition-colors duration-300 group-hover:text-paper/65">{technology}</span>
+                ))}
               </div>
-
-              <div class="project-main">
-
-                <div class="project-heading">
-
-                  <h3>
-                    {project.title}
-                  </h3>
-
-                  <p>
-                    {project.description}
-                  </p>
-
-                </div>
-
-                <div class="project-details">
-
-                  <div class="technologies">
-                    {project.technologies.map((technology) => (
-                      <span>{technology}</span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={`/projects/${project.slug}`}
-                    class="project-link"
-                  >
-                    View project
-                    <span>→</span>
-                  </a>
-
-                </div>
-
-              </div>
-
-            </article>
-          ))
-      }
-
+              <a href={`/projects/${project.slug}`} class="project-link relative inline-flex items-center gap-3 pb-2 text-[0.72rem] font-extrabold uppercase tracking-[0.13em] transition-[gap] duration-300 hover:gap-5">
+                View project <span>→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
 
-    <div class="all-projects">
-      <a href="/projects">
-        View all projects
-        <span>→</span>
+    <div class="all-projects scroll-reveal mt-16">
+      <a href="/projects" class="all-projects-link relative inline-flex items-center gap-3 pb-2 text-[0.72rem] font-extrabold uppercase tracking-[0.13em] transition-[gap] duration-300 hover:gap-5">
+        View all projects <span>→</span>
       </a>
     </div>
-
   </div>
 </section>
 
-
-
-
 <style>
-  .featured-projects {
-    position: relative;
-    padding: clamp(7rem, 12vw, 11rem) 0;
-    border-top: 1px solid var(--border-color, #dcdcd6);
-    overflow: hidden;
-  }
-
-  .container {
-    width: min(1200px, calc(100% - 3rem));
-    margin: 0 auto;
-  }
-
-  /* -------------------------
-     Section label
-  ------------------------- */
-
-  .section-number {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: clamp(3.5rem, 7vw, 6rem);
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .section-number::after {
+  .section-number::after { content: ""; width: 3rem; height: 1px; background: var(--border-color); }
+  .section-number span:last-child { color: var(--text-main); }
+  .technology:not(:last-child)::after { content: "·"; position: absolute; right: -0.65rem; color: var(--border-color); }
+  .project-link::after, .all-projects-link::after {
     content: "";
-    width: 3rem;
+    position: absolute;
+    inset: auto 0 0;
     height: 1px;
-    background: var(--border-color, #dcdcd6);
-  }
-
-  .section-number span:first-child {
-    color: var(--text-muted, #77776f);
-  }
-
-  .section-number span:last-child {
-    color: var(--text-main, #0e0e0e);
-  }
-
-  /* -------------------------
-     Introduction
-  ------------------------- */
-
-  .section-intro {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-    gap: clamp(3rem, 8vw, 9rem);
-    margin-bottom: clamp(4rem, 8vw, 7rem);
-    align-items: start;
-  }
-
-  .section-intro h2 {
-    max-width: 850px;
-    margin: 0;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: clamp(2.8rem, 6vw, 5.8rem);
-    line-height: 0.98;
-    letter-spacing: -0.055em;
-    font-weight: 800;
-
-    text-wrap: balance;
-  }
-
-  .section-intro p {
-    max-width: 390px;
-    margin: 0;
-    padding-top: 0.6rem;
-
-    font-size: clamp(1rem, 1.2vw, 1.15rem);
-    line-height: 1.8;
-    color: var(--text-muted, #5f5f59);
-  }
-
-  /* -------------------------
-     Projects list
-  ------------------------- */
-
-  .projects-list {
-    border-top: 1px solid var(--text-main, #0e0e0e);
-  }
-
-  .project {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 80px minmax(0, 1fr);
-
-    padding: clamp(2.5rem, 5vw, 4.5rem) 1rem;
-
-    border-bottom: 1px solid var(--border-color, #dcdcd6);
-
-    transition:
-      background-color 0.4s ease,
-      padding-left 0.4s ease,
-      padding-right 0.4s ease;
-  }
-
-  .project::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background: var(--text-main, #0e0e0e);
-
-    transform: scaleY(0);
-    transform-origin: bottom;
-
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-
-    z-index: 0;
-  }
-
-  .project > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .project:hover {
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
-    color: var(--bg-color, #f4f4f0);
-  }
-
-  .project:hover::before {
-    transform: scaleY(1);
-  }
-
-  /* -------------------------
-     Project number
-  ------------------------- */
-
-  .project-number {
-    padding-top: 0.35rem;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-
-    color: var(--text-muted, #77776f);
-
-    transition: color 0.35s ease;
-  }
-
-  .project:hover .project-number {
-    color: rgba(244, 244, 240, 0.55);
-  }
-
-  /* -------------------------
-     Project content
-  ------------------------- */
-
-  .project-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
-    gap: clamp(3rem, 7vw, 7rem);
-  }
-
-  .project-heading h3 {
-    margin: 0 0 1.2rem;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: clamp(2rem, 3.8vw, 3.5rem);
-    line-height: 0.98;
-    letter-spacing: -0.045em;
-    font-weight: 800;
-
-    transition: color 0.35s ease;
-  }
-
-  .project-heading p {
-    max-width: 600px;
-    margin: 0;
-
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--text-muted, #5f5f59);
-
-    transition: color 0.35s ease;
-  }
-
-  .project:hover .project-heading p {
-    color: rgba(244, 244, 240, 0.65);
-  }
-
-  /* -------------------------
-     Project details
-  ------------------------- */
-
-  .project-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    gap: 2.5rem;
-  }
-
-  .technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem 1rem;
-  }
-
-  .technologies span {
-    position: relative;
-
-    padding: 0;
-
-    border: 0;
-    background: transparent;
-
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-
-    color: var(--text-muted, #77776f);
-
-    transition: color 0.35s ease;
-  }
-
-  .technologies span:not(:last-child)::after {
-    content: "·";
-
-    position: absolute;
-    right: -0.65rem;
-
-    color: var(--border-color, #dcdcd6);
-  }
-
-  .project:hover .technologies span {
-    color: rgba(244, 244, 240, 0.65);
-  }
-
-  .project-link {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-
-    padding-bottom: 0.5rem;
-
-    color: inherit;
-
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.13em;
-
-    transition: gap 0.35s ease;
-  }
-
-  .project-link::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 1px;
-
     background: currentColor;
-
     transform-origin: right;
     transition: transform 0.35s ease;
   }
-
-  .project-link:hover {
-    gap: 1.25rem;
-  }
-
-  .project-link:hover::after {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-
-  /* -------------------------
-     View all projects
-  ------------------------- */
-
-  .all-projects {
-    margin-top: 4rem;
-  }
-
-  .all-projects a {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-
-    padding-bottom: 0.5rem;
-
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.13em;
-
-    transition: gap 0.35s ease;
-  }
-
-  .all-projects a::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background: currentColor;
-
-    transition: transform 0.35s ease;
-    transform-origin: right;
-  }
-
-  .all-projects a:hover {
-    gap: 1.25rem;
-  }
-
-  .all-projects a:hover::after {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-
-  /* -------------------------
-     Scroll reveal
-  ------------------------- */
-
-  .section-number,
-  .section-intro,
-  .project,
-  .all-projects {
-    animation: fadeUp linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 25%;
-  }
-
-  .project {
-    animation-range: entry 5% cover 20%;
-  }
-
-  .all-projects {
-    animation-range: entry 10% cover 20%;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* -------------------------
-     Tablet
-  ------------------------- */
-
-  @media (max-width: 900px) {
-    .section-intro {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .section-intro p {
-      max-width: 600px;
-      padding-top: 0;
-    }
-
-    .project-main {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .project-details {
-      gap: 2rem;
-    }
-  }
-
-  /* -------------------------
-     Mobile
-  ------------------------- */
-
-  @media (max-width: 650px) {
-    .featured-projects {
-      padding: 5.5rem 0;
-    }
-
-    .container {
-      width: min(100% - 2rem, 1200px);
-    }
-
-    .section-number {
-      margin-bottom: 3rem;
-    }
-
-    .section-intro {
-      margin-bottom: 4rem;
-    }
-
-    .section-intro h2 {
-      font-size: clamp(2.5rem, 12vw, 4rem);
-    }
-
-    .project {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 2.5rem 0;
-    }
-
-    .project:hover {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    .project-number {
-      padding-top: 0;
-    }
-
-    .project-heading h3 {
-      font-size: clamp(1.9rem, 9vw, 3rem);
-    }
-
-    .project-heading p {
-      font-size: 0.95rem;
-    }
-
-    .project-details {
-      gap: 2rem;
-    }
-
-    .technologies span {
-      font-size: 0.65rem;
-    }
-
-    .all-projects {
-      margin-top: 3rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .section-number,
-    .section-intro,
-    .project,
-    .all-projects {
-      animation: none;
-    }
-
-    .project,
-    .project::before,
-    .project-link,
-    .all-projects a {
-      transition: none;
-    }
-  }
+  .project-link:hover::after, .all-projects-link:hover::after { transform: scaleX(0); transform-origin: left; }
+  .scroll-reveal { animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 10% cover 25%; }
+  .project.scroll-reveal { animation-range: entry 5% cover 20%; }
+  .all-projects.scroll-reveal { animation-range: entry 10% cover 20%; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 </style>

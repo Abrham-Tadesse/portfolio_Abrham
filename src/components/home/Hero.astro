@@ -5,105 +5,43 @@ interface Props {
   description: string;
 }
 
-const {
-  name,
-  role,
-  description
-} = Astro.props;
+const { name, role, description } = Astro.props;
 ---
 
-<section class="hero">
-  <div class="hero-container">
-
-    <div class="hero-content">
-
-      <p class="intro">
+<section class="hero relative flex min-h-svh items-center overflow-hidden border-b border-line py-28 pb-16 max-[900px]:min-h-0 max-[900px]:py-32 max-[600px]:py-28 max-[600px]:pb-16">
+  <div class="hero-container relative z-10 mx-auto grid w-full max-w-[1200px] grid-cols-[minmax(0,1fr)_360px] items-center gap-[clamp(3rem,7vw,7rem)] px-6 py-16 max-[900px]:grid-cols-1 max-[900px]:gap-16 max-[600px]:gap-14 max-[600px]:px-4 max-[600px]:py-12">
+    <div class="hero-content max-w-[760px] animate-[heroReveal_1s_cubic-bezier(0.22,1,0.36,1)_both] max-[900px]:max-w-full">
+      <p class="intro mb-6 flex items-center gap-[0.9rem] text-xs font-extrabold uppercase tracking-[0.2em] text-muted">
         Hello, I'm
       </p>
-
-      <h1>{name}</h1>
-
-      <h2>{role}</h2>
-
-      <p class="description">
-        {description}
-      </p>
-
-      <div class="actions">
-        <a href="/projects" class="primary-button">
-          View My Projects
-        </a>
-
-        <a href="/contact" class="secondary-button">
-          Contact Me
-        </a>
-      </div>
-
-    </div>
-
-    <div class="hero-image">
-      <!-- <img src="" alt="">        replace this entirely with the next dev sectionn  -->
-      <div class="photo-placeholder">
-        <span>PHOTO</span>
+      <h1 class="m-0 max-w-[900px] text-[clamp(4rem,9vw,8rem)] font-extrabold leading-[0.84] tracking-[-0.065em] text-ink max-[600px]:text-[clamp(3.5rem,17vw,5.5rem)]">{name}</h1>
+      <h2 class="mt-7 font-sans text-[clamp(1.2rem,2.2vw,2rem)] font-medium leading-tight normal-case tracking-[-0.025em] text-muted max-[600px]:text-[1.2rem]">{role}</h2>
+      <p class="mt-8 max-w-[570px] text-base leading-[1.9] text-muted max-[600px]:text-[0.95rem]">{description}</p>
+      <div class="mt-11 flex flex-wrap gap-3 max-[600px]:flex-col max-[600px]:items-stretch">
+        <a href="/projects" class="hero-button primary-button">View My Projects</a>
+        <a href="/contact" class="hero-button secondary-button">Contact Me</a>
       </div>
     </div>
 
+    <div class="hero-image relative flex animate-[imageReveal_1s_cubic-bezier(0.22,1,0.36,1)_200ms_both] justify-center max-[900px]:justify-start max-[600px]:justify-center">
+      <div class="photo-placeholder relative flex aspect-[4/5] w-full max-w-[360px] items-center justify-center overflow-hidden border border-ink bg-[#e8e8e2] max-[900px]:max-w-[320px] max-[600px]:max-w-[280px]">
+        <span class="relative z-10 font-heading text-[0.7rem] font-extrabold tracking-[0.25em]">PHOTO</span>
+      </div>
+    </div>
   </div>
 </section>
 
-
-
 <style>
-  .hero {
-    position: relative;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    padding: 7rem 0 4rem;
-    border-bottom: 1px solid var(--border-color);
-    overflow: hidden;
-  }
-
   .hero::before {
     content: "01";
     position: absolute;
     top: 7rem;
     left: max(1.5rem, calc((100vw - 1200px) / 2));
+    color: var(--text-muted);
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.18em;
-    color: var(--text-muted);
-  }
-
-  .hero-container {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 360px;
-    align-items: center;
-    gap: clamp(3rem, 7vw, 7rem);
-  }
-
-  .hero-content {
-    max-width: 760px;
-    animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .intro {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    margin: 0 0 1.5rem;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-muted);
   }
 
   .intro::before {
@@ -113,139 +51,24 @@ const {
     background: var(--border-dark);
   }
 
-  h1 {
-    margin: 0;
-    max-width: 900px;
-    font-size: clamp(4rem, 9vw, 8rem);
-    line-height: 0.84;
-    letter-spacing: -0.065em;
-    font-weight: 800;
-    color: var(--text-main);
-  }
-
-  h2 {
-    margin: 1.75rem 0 0;
-    font-family: var(--font-body);
-    font-size: clamp(1.2rem, 2.2vw, 2rem);
-    line-height: 1.2;
-    font-weight: 500;
-    color: var(--text-muted);
-    letter-spacing: -0.025em;
-    text-transform: none;
-  }
-
-  .description {
-    max-width: 570px;
-    margin: 2rem 0 0;
-    font-size: 1rem;
-    line-height: 1.9;
-    color: var(--text-muted);
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2.75rem;
-  }
-
-  .primary-button,
-  .secondary-button {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 52px;
-    padding: 0.95rem 1.5rem;
-    overflow: hidden;
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    transition:
-      color 0.35s ease,
-      background-color 0.35s ease,
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .primary-button {
-    background: var(--text-main);
-    color: var(--bg-color);
-    border: 1px solid var(--text-main);
-  }
-
-  .secondary-button {
-    background: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--border-dark);
-  }
-
-  .primary-button::after,
-  .secondary-button::after {
-    content: "→";
-    margin-left: 0.7rem;
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .primary-button:hover,
-  .secondary-button:hover {
-    transform: translateY(-4px);
-  }
-
-  .primary-button:hover {
-    background: transparent;
-    color: var(--text-main);
-  }
-
-  .secondary-button:hover {
-    background: var(--text-main);
-    color: var(--bg-color);
-  }
-
-  .primary-button:hover::after,
-  .secondary-button:hover::after {
-    transform: translateX(4px);
-  }
-
-  .hero-image {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    animation: imageReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
-  }
-
   .hero-image::before {
     content: "PROFILE";
     position: absolute;
     top: -1.75rem;
     right: 0;
+    color: var(--text-muted);
     font-family: var(--font-heading);
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.18em;
-    color: var(--text-muted);
-  }
-
-  .photo-placeholder {
-    position: relative;
-    width: 100%;
-    max-width: 360px;
-    aspect-ratio: 4 / 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #e8e8e2;
-    border: 1px solid var(--border-dark);
   }
 
   .photo-placeholder::before {
     content: "";
     position: absolute;
     inset: 14px;
-    border: 1px solid rgba(14, 14, 14, 0.16);
-    transition: inset 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 1px solid rgb(14 14 14 / 16%);
+    transition: inset 0.5s var(--ease-out);
   }
 
   .photo-placeholder::after {
@@ -253,133 +76,53 @@ const {
     position: absolute;
     width: 160%;
     height: 1px;
-    background: rgba(14, 14, 14, 0.12);
+    background: rgb(14 14 14 / 12%);
     transform: rotate(-45deg);
   }
 
-  .photo-placeholder:hover::before {
-    inset: 20px;
+  .photo-placeholder:hover::before { inset: 20px; }
+
+  .hero-button {
+    position: relative;
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--text-main);
+    padding: 0.95rem 1.5rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.35s ease, background-color 0.35s ease, transform 0.35s var(--ease-out);
   }
 
-  .photo-placeholder span {
-    position: relative;
-    z-index: 1;
-    font-family: var(--font-heading);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.25em;
+  .hero-button::after {
+    content: "→";
+    margin-left: 0.7rem;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
   }
+
+  .primary-button { background: var(--text-main); color: var(--bg-color); }
+  .secondary-button { background: transparent; color: var(--text-main); }
+  .primary-button:hover { background: transparent; color: var(--text-main); }
+  .secondary-button:hover { background: var(--text-main); color: var(--bg-color); }
+  .hero-button:hover { transform: translateY(-4px); }
+  .hero-button:hover::after { transform: translateX(4px); }
 
   @keyframes heroReveal {
-    from {
-      opacity: 0;
-      transform: translateY(45px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(45px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes imageReveal {
-    from {
-      opacity: 0;
-      transform: translateX(45px) scale(0.96);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0) scale(1);
-    }
+    from { opacity: 0; transform: translateX(45px) scale(0.96); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
   }
 
-  @media (max-width: 900px) {
-    .hero {
-      min-height: auto;
-      padding: 8rem 0 5rem;
-    }
-
-    .hero::before {
-      top: 5rem;
-    }
-
-    .hero-container {
-      grid-template-columns: 1fr;
-      gap: 4rem;
-    }
-
-    .hero-content {
-      max-width: 100%;
-    }
-
-    .hero-image {
-      justify-content: flex-start;
-    }
-
-    .photo-placeholder {
-      max-width: 320px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .hero {
-      padding: 7rem 0 4rem;
-    }
-
-    .hero-container {
-      padding: 3rem 1rem;
-      gap: 3.5rem;
-    }
-
-    .hero::before {
-      left: 1rem;
-    }
-
-    h1 {
-      font-size: clamp(3.5rem, 17vw, 5.5rem);
-    }
-
-    h2 {
-      font-size: 1.2rem;
-    }
-
-    .description {
-      font-size: 0.95rem;
-    }
-
-    .actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .primary-button,
-    .secondary-button {
-      width: 100%;
-    }
-
-    .hero-image {
-      justify-content: center;
-    }
-
-    .photo-placeholder {
-      max-width: 280px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-content,
-    .hero-image {
-      animation: none;
-    }
-
-    .primary-button,
-    .secondary-button,
-    .photo-placeholder,
-    .photo-placeholder::before,
-    .primary-button::after,
-    .secondary-button::after {
-      transition: none;
-    }
-  }
+  @media (max-width: 900px) { .hero::before { top: 5rem; } }
+  @media (max-width: 600px) { .hero::before { top: 5rem; left: 1rem; } .hero-button { width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .hero-content, .hero-image { animation: none; } .hero-button, .hero-button::after, .photo-placeholder::before { transition: none; } }
 </style>

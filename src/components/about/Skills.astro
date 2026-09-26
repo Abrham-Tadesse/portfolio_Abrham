@@ -3,268 +3,43 @@ import { skillGroups } from "../../data/skills";
 import Reveal from "../animations/Reveal.astro";
 ---
 
-<section class="skills">
-  <div class="container">
-<Reveal>
-  <div class="section-number">
-    <span>02</span>
-    <span>Skills</span>
-  </div>
-</Reveal>
+<section class="relative overflow-hidden border-t border-line py-[clamp(7rem,12vw,11rem)] max-[650px]:py-[5.5rem]">
+  <div class="mx-auto w-[min(1200px,calc(100%-3rem))] max-[650px]:w-[min(100%-2rem,1200px)]">
+    <Reveal>
+      <div class="section-number mb-[clamp(3.5rem,7vw,6rem)] flex items-center gap-4 font-heading text-[0.72rem] font-extrabold uppercase tracking-[0.18em] max-[650px]:mb-12">
+        <span class="text-muted">02</span><span class="text-ink">Skills</span>
+      </div>
+    </Reveal>
 
-    <div class="skills-header">
-    <Reveal delay={100}>
-  <h2>Technologies I work with.</h2>
-</Reveal>
-
-     <Reveal delay={200}>
-  <p>
-    Technologies and tools I use to build software.
-  </p>
-</Reveal>
+    <div class="mb-[clamp(4rem,8vw,7rem)] grid grid-cols-[minmax(0,1.35fr)_minmax(260px,0.65fr)] items-start gap-[clamp(3rem,8vw,9rem)] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[650px]:mb-16">
+      <Reveal delay={100}>
+        <h2 class="m-0 max-w-[800px] text-[clamp(2.8rem,6vw,5.8rem)] font-extrabold leading-[0.98] tracking-[-0.055em] text-balance max-[650px]:text-[clamp(2.5rem,12vw,4rem)]">Technologies I work with.</h2>
+      </Reveal>
+      <Reveal delay={200}>
+        <p class="max-w-[380px] pt-[0.6rem] text-[clamp(1rem,1.2vw,1.15rem)] leading-[1.8] text-muted max-[900px]:max-w-[600px] max-[900px]:pt-0">Technologies and tools I use to build software.</p>
+      </Reveal>
     </div>
 
-
-   
-    <div class="skills-list">
-
+    <div class="border-t border-ink">
       {skillGroups.map((group) => (
-         <Reveal delay={100}>
-        <div class="skill-group">
-
-          <h3>
-            {group.category}
-          </h3>
-
-          <div class="skill-items">
-
-            {group.skills.map((skill) => (
-              <span>{skill}</span>
-            ))}
-
+        <Reveal delay={100}>
+          <div class="skill-group group grid grid-cols-[220px_minmax(0,1fr)] gap-[clamp(2rem,5vw,5rem)] border-b border-line py-10 transition-[padding] duration-300 hover:pl-2 max-[900px]:grid-cols-[170px_minmax(0,1fr)] max-[900px]:gap-8 max-[650px]:grid-cols-1 max-[650px]:gap-6 max-[650px]:py-8">
+            <h3 class="skill-category relative m-0 font-heading text-[0.72rem] font-extrabold uppercase leading-[1.4] tracking-[0.15em] text-muted max-[650px]:text-[0.68rem]">{group.category}</h3>
+            <div class="flex flex-wrap items-start gap-x-5 gap-y-2">
+              {group.skills.map((skill) => (
+                <span class="skill-item relative inline-flex items-center text-[clamp(1rem,1.5vw,1.25rem)] font-semibold leading-[1.5] text-ink transition duration-200 hover:-translate-y-0.5 hover:text-muted max-[650px]:mr-0 max-[650px]:text-base">{skill}</span>
+              ))}
+            </div>
           </div>
-
-        </div>
         </Reveal>
       ))}
-
     </div>
-
   </div>
 </section>
 
-
 <style>
-  .skills {
-    position: relative;
-    padding: clamp(7rem, 12vw, 11rem) 0;
-    border-top: 1px solid var(--border-color, #dcdcd6);
-    overflow: hidden;
-  }
-
-  .container {
-    width: min(1200px, calc(100% - 3rem));
-    margin: 0 auto;
-  }
-
-  .section-number {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: clamp(3.5rem, 7vw, 6rem);
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .section-number::after {
-    content: "";
-    width: 3rem;
-    height: 1px;
-    background: var(--border-color, #dcdcd6);
-  }
-
-  .section-number span:first-child {
-    color: var(--text-muted, #77776f);
-  }
-
-  .section-number span:last-child {
-    color: var(--text-main, #0e0e0e);
-  }
-
-  .skills-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-    gap: clamp(3rem, 8vw, 9rem);
-    margin-bottom: clamp(4rem, 8vw, 7rem);
-    align-items: start;
-  }
-
-  .skills-header h2 {
-    max-width: 800px;
-    margin: 0;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: clamp(2.8rem, 6vw, 5.8rem);
-    line-height: 0.98;
-    letter-spacing: -0.055em;
-    font-weight: 800;
-
-    text-wrap: balance;
-  }
-
-  .skills-header p {
-    max-width: 380px;
-    margin: 0;
-    padding-top: 0.6rem;
-
-    font-size: clamp(1rem, 1.2vw, 1.15rem);
-    line-height: 1.8;
-    color: var(--text-muted, #5f5f59);
-  }
-
-  .skills-list {
-    border-top: 1px solid var(--text-main, #0e0e0e);
-  }
-
-  .skill-group {
-    display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 5rem);
-
-    padding: 2.5rem 0;
-
-    border-bottom: 1px solid var(--border-color, #dcdcd6);
-
-    transition: padding 0.35s ease;
-  }
-
-  .skill-group h3 {
-    position: relative;
-
-    margin: 0;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.72rem;
-    font-weight: 800;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-
-    color: var(--text-muted, #77776f);
-  }
-
-  .skill-group h3::before {
-    content: "—";
-    margin-right: 0.6rem;
-    color: var(--text-main, #0e0e0e);
-  }
-
-  .skill-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-
-    align-content: flex-start;
-  }
-
-  .skill-items span {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-
-    margin-right: 1.25rem;
-    margin-bottom: 0.7rem;
-    padding: 0;
-
-    border: 0;
-    background: transparent;
-
-    color: var(--text-main, #0e0e0e);
-
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    font-weight: 600;
-    line-height: 1.5;
-
-    transition:
-      color 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .skill-items span:not(:last-child)::after {
-    content: "·";
-
-    position: absolute;
-    right: -0.85rem;
-
-    color: var(--text-muted, #999990);
-  }
-
-  .skill-items span:hover {
-    color: var(--text-muted, #666660);
-    transform: translateY(-2px);
-  }
-
-  .skill-group:hover {
-    padding-left: 0.5rem;
-  }
-
-  @media (max-width: 900px) {
-    .skills-header {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .skills-header p {
-      max-width: 600px;
-      padding-top: 0;
-    }
-
-    .skill-group {
-      grid-template-columns: 170px minmax(0, 1fr);
-      gap: 2rem;
-    }
-  }
-
-  @media (max-width: 650px) {
-    .skills {
-      padding: 5.5rem 0;
-    }
-
-    .container {
-      width: min(100% - 2rem, 1200px);
-    }
-
-    .section-number {
-      margin-bottom: 3rem;
-    }
-
-    .skills-header {
-      margin-bottom: 4rem;
-    }
-
-    .skills-header h2 {
-      font-size: clamp(2.5rem, 12vw, 4rem);
-    }
-
-    .skill-group {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 2rem 0;
-    }
-
-    .skill-group h3 {
-      font-size: 0.68rem;
-    }
-
-    .skill-items span {
-      font-size: 1rem;
-      margin-right: 1rem;
-      margin-bottom: 0.5rem;
-    }
-  }
+  .section-number::after { content: ""; width: 3rem; height: 1px; background: var(--border-color); }
+  .section-number span:last-child { color: var(--text-main); }
+  .skill-category::before { content: "—"; margin-right: 0.6rem; color: var(--text-main); }
+  .skill-item:not(:last-child)::after { content: "·"; position: absolute; right: -0.85rem; color: #999990; }
 </style>

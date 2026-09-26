@@ -4,291 +4,41 @@ import Navbar from "../../components/navigation/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<BaseLayout
-  title="Contact | Your Name"
-  description="Get in touch with Your Name."
->
+<BaseLayout title="Contact | Your Name" description="Get in touch with Your Name.">
   <Navbar />
-
   <main>
-    <section class="contact">
-      <div class="container">
-
-        <header class="contact-header">
-          <p class="eyebrow">Contact</p>
-
-          <h1>Let's work together.</h1>
-
-          <p>
-            Have a project, opportunity, or idea you'd like to discuss?
-            Feel free to get in touch.
+    <section class="flex min-h-screen items-center py-[clamp(10rem,16vw,14rem)] pb-[clamp(7rem,12vw,11rem)] max-[800px]:items-start max-[800px]:pt-36 max-[600px]:py-32 max-[600px]:pb-20">
+      <div class="mx-auto w-[min(1000px,calc(100%-3rem))] max-[600px]:w-[min(100%-2rem,1000px)]">
+        <header class="mb-[clamp(5rem,10vw,8rem)] max-w-[850px] max-[600px]:mb-20">
+          <p class="eyebrow mb-10 flex items-center gap-4 font-heading text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-muted max-[600px]:mb-5">Contact</p>
+          <h1 class="mb-10 max-w-[850px] text-[clamp(3.5rem,9vw,8rem)] font-extrabold leading-[0.88] tracking-[-0.065em] text-balance max-[600px]:text-[clamp(3.2rem,16vw,5rem)]">Let's work together.</h1>
+          <p class="max-w-[620px] text-[clamp(1rem,1.3vw,1.2rem)] leading-[1.85] text-muted max-[600px]:text-base max-[600px]:leading-[1.75]">
+            Have a project, opportunity, or idea you'd like to discuss? Feel free to get in touch.
           </p>
         </header>
 
-        <div class="contact-links">
-
-          <a href="mailto:abrhamtadesseam@gmail.com">
-            <span>Email</span>
-            <strong>abrhamtadesseam@gmail</strong>
+        <div class="grid grid-cols-3 border-y border-ink max-[800px]:grid-cols-1">
+          <a href="mailto:abrhamtadesseam@gmail.com" class="contact-card group flex min-h-[210px] flex-col justify-between border-r border-line p-8 transition-colors duration-300 hover:bg-ink hover:text-paper max-[800px]:min-h-[170px] max-[800px]:border-r-0 max-[800px]:border-b max-[600px]:min-h-[150px] max-[600px]:p-6">
+            <span class="font-heading text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-muted transition-colors group-hover:text-[#888]">Email</span>
+            <strong class="contact-address flex items-center justify-between gap-4 break-words font-sans text-[clamp(0.85rem,1vw,1rem)] font-semibold">abrhamtadesseam@gmail</strong>
           </a>
-
-          <a
-            href="https://github.com/Abrham-Tadesse"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>GitHub</span>
-            <strong>github.com/Abrham-Tadesse</strong>
+          <a href="https://github.com/Abrham-Tadesse" target="_blank" rel="noopener noreferrer" class="contact-card group flex min-h-[210px] flex-col justify-between border-r border-line p-8 transition-colors duration-300 hover:bg-ink hover:text-paper max-[800px]:min-h-[170px] max-[800px]:border-r-0 max-[800px]:border-b max-[600px]:min-h-[150px] max-[600px]:p-6">
+            <span class="font-heading text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-muted transition-colors group-hover:text-[#888]">GitHub</span>
+            <strong class="contact-address flex items-center justify-between gap-4 break-words font-sans text-[clamp(0.85rem,1vw,1rem)] font-semibold">github.com/Abrham-Tadesse</strong>
           </a>
-
-          <a
-            href="https://www.linkedin.com/in/linkedin/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>LinkedIn</span>
-            <strong>linkedin.com/in/linkedin</strong>
+          <a href="https://www.linkedin.com/in/linkedin/" target="_blank" rel="noopener noreferrer" class="contact-card group flex min-h-[210px] flex-col justify-between p-8 transition-colors duration-300 hover:bg-ink hover:text-paper max-[800px]:min-h-[170px] max-[800px]:border-b max-[600px]:min-h-[150px] max-[600px]:p-6">
+            <span class="font-heading text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-muted transition-colors group-hover:text-[#888]">LinkedIn</span>
+            <strong class="contact-address flex items-center justify-between gap-4 break-words font-sans text-[clamp(0.85rem,1vw,1rem)] font-semibold">linkedin.com/in/linkedin</strong>
           </a>
-
         </div>
-
       </div>
     </section>
   </main>
-
   <Footer />
 </BaseLayout>
 
-
 <style>
-  .contact {
-    min-height: 100vh;
-
-    padding: clamp(10rem, 16vw, 14rem) 0
-      clamp(7rem, 12vw, 11rem);
-
-    display: flex;
-    align-items: center;
-  }
-
-  .container {
-    width: min(1000px, calc(100% - 3rem));
-
-    margin: 0 auto;
-  }
-
-  /* =========================
-     Header
-  ========================= */
-
-  .contact-header {
-    max-width: 850px;
-
-    margin-bottom: clamp(5rem, 10vw, 8rem);
-  }
-
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    margin: 0 0 2.5rem;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.7rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-
-    color: var(--text-muted);
-  }
-
-  .eyebrow::after {
-    content: "";
-
-    width: 3rem;
-    height: 1px;
-
-    background: var(--border-color);
-  }
-
-  .contact-header h1 {
-    max-width: 850px;
-
-    margin: 0 0 2.5rem;
-
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: clamp(3.5rem, 9vw, 8rem);
-    font-weight: 800;
-
-    line-height: 0.88;
-    letter-spacing: -0.065em;
-
-    text-wrap: balance;
-  }
-
-  .contact-header > p:last-child {
-    max-width: 620px;
-
-    margin: 0;
-
-    font-size: clamp(1rem, 1.3vw, 1.2rem);
-    line-height: 1.85;
-
-    color: var(--text-muted);
-  }
-
-  /* =========================
-     Contact Links
-  ========================= */
-
-  .contact-links {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
-  }
-
-  .contact-links a {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    min-height: 210px;
-
-    padding: 2rem;
-
-    border-right: 1px solid var(--border-color);
-
-    background: transparent;
-
-    transition:
-      background-color 0.4s var(--ease-out, ease),
-      color 0.4s var(--ease-out, ease);
-  }
-
-  .contact-links a:last-child {
-    border-right: 0;
-  }
-
-  .contact-links a:hover {
-    background: var(--text-main);
-
-    color: var(--bg-color);
-  }
-
-  .contact-links span {
-    font-family: var(--font-heading, "Syne", sans-serif);
-    font-size: 0.68rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-
-    color: var(--text-muted);
-
-    transition: color 0.4s ease;
-  }
-
-  .contact-links a:hover span {
-    color: #888;
-  }
-
-  .contact-links strong {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 1rem;
-
-    font-family: var(--font-body, inherit);
-    font-size: clamp(0.85rem, 1vw, 1rem);
-    font-weight: 600;
-
-    word-break: break-word;
-  }
-
-  .contact-links strong::after {
-    content: "↗";
-
-    flex-shrink: 0;
-
-    font-family: var(--font-body, inherit);
-    font-size: 1rem;
-
-    transition:
-      transform 0.35s var(--ease-out, ease);
-  }
-
-  .contact-links a:hover strong::after {
-    transform: translate(0.2rem, -0.2rem);
-  }
-
-  /* =========================
-     Responsive
-  ========================= */
-
-  @media (max-width: 800px) {
-    .contact {
-      padding-top: 9rem;
-    }
-
-    .contact-links {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-links a {
-      min-height: 170px;
-
-      border-right: 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .contact-links a:last-child {
-      border-bottom: 0;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .container {
-      width: min(100% - 2rem, 1000px);
-    }
-
-    .contact {
-      padding-top: 8rem;
-      padding-bottom: 5rem;
-    }
-
-    .contact-header {
-      margin-bottom: 5rem;
-    }
-
-    .contact-header h1 {
-      font-size: clamp(3.2rem, 16vw, 5rem);
-    }
-
-    .contact-header > p:last-child {
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .contact-links a {
-      min-height: 150px;
-
-      padding: 1.5rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .contact-links a,
-    .contact-links span,
-    .contact-links strong::after {
-      transition: none;
-    }
-  }
+  .eyebrow::after { content: ""; width: 3rem; height: 1px; background: var(--border-color); }
+  .contact-address::after { content: "↗"; flex-shrink: 0; font-size: 1rem; transition: transform 0.35s var(--ease-out); }
+  .contact-card:hover .contact-address::after { transform: translate(0.2rem, -0.2rem); }
 </style>
