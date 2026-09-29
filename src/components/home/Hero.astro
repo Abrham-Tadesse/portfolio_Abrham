@@ -25,7 +25,7 @@ const { name, role, description } = Astro.props;
 
     <div class="hero-image relative flex animate-[imageReveal_1s_cubic-bezier(0.22,1,0.36,1)_200ms_both] justify-center max-[900px]:justify-start max-[600px]:justify-center">
       <div class="photo-placeholder relative flex aspect-[4/5] w-full max-w-[360px] items-center justify-center overflow-hidden border border-ink bg-[#e8e8e2] max-[900px]:max-w-[320px] max-[600px]:max-w-[280px]">
-        <span class="relative z-10 font-heading text-[0.7rem] font-extrabold tracking-[0.25em]">PHOTO</span>
+        <img src="/images/profile/profile.jpg" alt="Portrait of Abrham Tadesse" class="absolute inset-0 h-full w-full object-cover object-[60%_center]" fetchpriority="high" />
       </div>
     </div>
   </div>
@@ -69,15 +69,6 @@ const { name, role, description } = Astro.props;
     inset: 14px;
     border: 1px solid rgb(14 14 14 / 16%);
     transition: inset 0.5s var(--ease-out);
-  }
-
-  .photo-placeholder::after {
-    content: "";
-    position: absolute;
-    width: 160%;
-    height: 1px;
-    background: rgb(14 14 14 / 12%);
-    transform: rotate(-45deg);
   }
 
   .photo-placeholder:hover::before { inset: 20px; }

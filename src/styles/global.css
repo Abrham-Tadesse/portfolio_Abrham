@@ -3,7 +3,7 @@
 @theme {
   --color-ink: #111111;
   --color-paper: #f7f7f2;
-  --color-line: #d8d8d0;
+  --color-line: #c9bfad;
   --color-muted: #72726d;
   --font-heading: "Arial", "Helvetica Neue", sans-serif;
   --font-sans: "Arial", "Helvetica Neue", sans-serif;
@@ -19,8 +19,8 @@
 
   --text-main: #111111;
   --text-muted: #72726d;
-  --bg-color: #f7f7f2;
-  --border-color: #d8d8d0;
+  --bg-color: #e1d8c8;
+  --border-color: #c9bfad;
   --border-dark: #111111;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
