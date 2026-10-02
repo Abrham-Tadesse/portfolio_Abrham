@@ -53,7 +53,7 @@ export const projects: Project[] = [
     ],
 
     github:
-      "https://github.com/your-username/smart-community-service",
+      "https://github.com/Abrham-Tadesse/smart-community-service",
 
     demo: "",
 
@@ -61,42 +61,48 @@ export const projects: Project[] = [
   },
 
   {
-    title: "AI Assistant",
+    title: "p2p-exam preparation platform",
 
-    slug: "ai-assistant",
+    slug: "p2p-exam preparation platform",
 
     description:
-      "A web-based AI assistant that accepts user messages through a frontend and communicates with an AI model through a Flask backend.",
+"A web-based peer-to-peer exam preparation platform that connects students with tutors, allowing students to access quizzes, communicate with tutors, submit tutor applications, and receive academic support through a role-based backend system.",
 
-    problem:
-      "Users need a simple interface for communicating with an AI model without exposing API credentials in the frontend.",
+problem:
+"Students need a centralized platform where they can access exam preparation resources, connect with qualified tutors, communicate in real time, and receive structured academic support, while administrators need tools to manage users, tutor applications, and platform activities.",
 
-    solution:
-      "I created a frontend-to-backend architecture where the browser sends requests to Flask, and the backend communicates with the AI service securely.",
+solution:
+"I developed a modular backend architecture using Node.js and Express.js that manages authentication, tutor applications, administrative approval, quizzes, conversations, messaging, ratings, and reporting. ",
 
-    features: [
-      "Chat interface",
-      "Backend API",
-      "AI model integration",
-      "Environment-based API key configuration",
-      "JSON request and response handling"
-    ],
+features: [
+"Student, Tutor, and Admin role-based access",
+"JWT-based authentication and authorization",
+"Quiz creation, participation, and submission",
+"Real-time student–tutor messaging",
+"Conversation management",
+"Document upload and storage for tutor applications",
+],
 
-    technologies: [
-      "Python",
-      "Flask",
-      "Gemini API"
-    ],
+technologies: [
+"Node.js",
+"Express.js",
+"PostgreSQL",
+"Prisma ORM",
+"Socket.IO",
+"JWT",
+"bcrypt",
+"Zod",
+"Cloudinary"
+],
 
-    challenges: [
-      "Handling API credentials securely",
-      "Connecting the frontend to the Flask backend",
-      "Handling JSON requests and responses",
-      "Managing API errors"
-    ],
+challenges: [
+"Managing relational data and complex relationships with PostgreSQL and Prisma",
+"Implementing authenticated real-time communication using Socket.IO",
+"Validating and securely processing tutor application documents",
+],
 
     github:
-      "https://github.com/your-username/ai-assistant",
+      "https://github.com/your-username/p2p-exam_platform",
 
     demo: "",
 
@@ -104,47 +110,48 @@ export const projects: Project[] = [
   },
 
   {
-    title: "Menu and Ordering System",
+title: "Graphic Designer Portfolio",
 
-    slug: "menu-ordering-system",
+slug: "graphic-designer-portfolio",
 
-    description:
-      "A web application for browsing food items, adding them to a cart, and submitting orders through a Flask backend.",
+description:
+"A modern personal portfolio website developed for a graphic designer to showcase creative work, design projects, professional experience, and visual identity through an engaging and responsive digital portfolio.",
 
-    problem:
-      "A simple restaurant menu needs an easy way for customers to browse available food and submit orders digitally.",
+problem:
+"Graphic designers need a visually compelling online presence where they can showcase their creative work, communicate their design style, highlight professional experience, and give potential clients an easy way to explore their portfolio.",
 
-    solution:
-      "I built a frontend menu and cart interface connected to Flask API endpoints for retrieving food and storing orders.",
+solution:
+"I designed and developed a responsive portfolio website centered around the designer's visual identity and creative work, with structured project presentation, smooth navigation, interactive sections, and a clean interface that allows visitors to explore the designer's work and professional background.",
 
-    features: [
-      "Food menu",
-      "Category filtering",
-      "Shopping cart",
-      "Order submission",
-      "Order retrieval",
-      "REST API"
-    ],
+features: [
+"Creative portfolio showcase",
+"Graphic design project presentation",
+"Skills and design tools showcase",
+"Responsive design across devices",
+"Interactive navigation",
+"Smooth page transitions and animations",
+],
 
-    technologies: [
-      "JavaScript",
-      "Python",
-      "Flask",
-      "JSON"
-    ],
+technologies: [
+"React",
+"JavaScript",
+"HTML",
+"CSS"
+],
 
-    challenges: [
-      "Connecting frontend JavaScript to Flask",
-      "Handling JSON requests",
-      "Managing cart state",
-      "Persisting orders"
-    ],
+challenges: [
+"Translating the graphic designer's visual identity into a cohesive web experience",
+"Designing a portfolio that emphasizes visual work without sacrificing usability",
+"Implementing smooth interactions and animations while maintaining a responsive user experience"
+],
 
-    github:
-      "https://github.com/your-username/menu-ordering-system",
+github:
+"YOUR_GITHUB_REPOSITORY_URL",
 
-    demo: "",
+demo:
+"YOUR_DEPLOYED_WEBSITE_URL",
 
-    featured: false
-  }
+featured: false
+},
+
 ];

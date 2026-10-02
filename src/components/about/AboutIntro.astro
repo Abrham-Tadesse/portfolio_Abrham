@@ -22,9 +22,6 @@ import Reveal from "../animations/Reveal.astro";
           <p class="mb-10 text-[clamp(1rem,1.2vw,1.15rem)] leading-[1.8] text-muted max-[600px]:text-base max-[600px]:leading-[1.75]">
             I'm a software developer interested in building useful applications and understanding how technology works from the frontend to the backend.
           </p>
-          <a href="/about" class="about-link relative inline-flex items-center gap-[0.7rem] pb-2 text-xs font-extrabold uppercase tracking-[0.14em] text-ink transition-all duration-300 hover:gap-5">
-            More about me →
-          </a>
         </div>
       </Reveal>
     </div>
@@ -34,14 +31,4 @@ import Reveal from "../animations/Reveal.astro";
 <style>
   .section-number span:last-child { color: var(--text-main); }
   .section-number::after { content: ""; width: 3rem; height: 1px; background: var(--border-color); }
-  .about-link::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0;
-    height: 1px;
-    background: currentColor;
-    transform-origin: right;
-    transition: transform 0.35s ease;
-  }
-  .about-link:hover::after { transform: scaleX(0); transform-origin: left; }
 </style>

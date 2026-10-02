@@ -22,8 +22,6 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       "Node.js",
       "Express",
-      "Python",
-      "Flask",
       "REST APIs"
     ]
   },
@@ -33,8 +31,10 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       "MongoDB",
       "Mongoose",
-      "MySQL"
+      "PostgreSQL",
+      "Prisma"
     ]
+
   },
 
   {
@@ -42,8 +42,8 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       "Git",
       "GitHub",
-      "Docker",
-      "Linux"
+      "insomnia",
+      "postman"
     ]
   }
 ];
