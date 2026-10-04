@@ -53,9 +53,9 @@ export const projects: Project[] = [
     ],
 
     github:
-      "https://github.com/Abrham-Tadesse/smart-community-service",
+      "https://github.com/Abrham-Tadesse/smart_community_service",
 
-    demo: "",
+    demo: "https://firstdeploymentofsmartcommunityserv.vercel.app",
 
     featured: true
   },
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     slug: "p2p-exam preparation platform",
 
     description:
-"A web-based peer-to-peer exam preparation platform that connects students with tutors, allowing students to access quizzes, communicate with tutors, submit tutor applications, and receive academic support through a role-based backend system.",
+"A web-based peer-to-peer exam preparation platform that connects students with tutors, allowing students to access quizzes, communicate with tutors, submit tutor applications, and receive academic support through a role-based backend system. Icollaborated with a team of developers to design and implement a modular backend architecture.",
 
 problem:
 "Students need a centralized platform where they can access exam preparation resources, connect with qualified tutors, communicate in real time, and receive structured academic support, while administrators need tools to manage users, tutor applications, and platform activities.",
@@ -102,7 +102,7 @@ challenges: [
 ],
 
     github:
-      "https://github.com/your-username/p2p-exam_platform",
+      " ",
 
     demo: "",
 
@@ -146,10 +146,10 @@ challenges: [
 ],
 
 github:
-"YOUR_GITHUB_REPOSITORY_URL",
+"https://github.com/Abrham-Tadesse/designer_portfolio",
 
 demo:
-"YOUR_DEPLOYED_WEBSITE_URL",
+"https://designer-portfolio-5rr1.vercel.app/",
 
 featured: false
 },

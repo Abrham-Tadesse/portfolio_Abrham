@@ -18,8 +18,8 @@ const { project } = Astro.props;
       <div class="mx-auto w-[min(1000px,calc(100%-3rem))] max-[600px]:w-[min(100%-2rem,1000px)]">
         <header class="mb-[clamp(7rem,14vw,12rem)] max-w-[900px]">
           <p class="eyebrow mb-10 flex items-center gap-4 font-heading text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-muted max-[600px]:mb-5">Project</p>
-          <h1 class="mb-10 max-w-[900px] text-[clamp(3.5rem,9vw,8rem)] font-extrabold leading-[0.88] tracking-[-0.065em] text-balance max-[600px]:text-[clamp(3.2rem,16vw,5rem)]">{project.title}</h1>
-          <p class="mb-12 max-w-[650px] text-[clamp(1.05rem,1.35vw,1.25rem)] leading-[1.8] text-muted">{project.description}</p>
+          <h1 class="mb-10 max-w-[900px] text-[clamp(2.8rem,6vw,5.8rem)] font-extrabold leading-[0.96] tracking-[-0.055em] text-balance max-[600px]:text-[clamp(2.6rem,12vw,4.4rem)]">{project.title}</h1>
+          <p class="mb-12 max-w-[650px] text-[clamp(1rem,1.15vw,1.15rem)] leading-[1.8] text-muted">{project.description}</p>
           <div class="flex flex-wrap items-center gap-6">
             <a class="project-external-link inline-flex items-center gap-2 border-b border-ink pb-2 font-heading text-[0.7rem] font-extrabold uppercase tracking-[0.14em] transition-[gap,opacity] duration-300 hover:gap-4" href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
             {project.demo && <a class="project-external-link inline-flex items-center gap-2 border-b border-ink pb-2 font-heading text-[0.7rem] font-extrabold uppercase tracking-[0.14em] transition-[gap,opacity] duration-300 hover:gap-4" href={project.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>}

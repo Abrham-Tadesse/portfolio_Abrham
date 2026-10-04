@@ -13,10 +13,10 @@ import Reveal from "../animations/Reveal.astro";
 
     <div class="mb-[clamp(4rem,8vw,7rem)] grid grid-cols-[minmax(0,1.35fr)_minmax(260px,0.65fr)] items-start gap-[clamp(3rem,8vw,9rem)] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[650px]:mb-16">
       <Reveal delay={100}>
-        <h2 class="m-0 max-w-[800px] text-[clamp(2.8rem,6vw,5.8rem)] font-extrabold leading-[0.98] tracking-[-0.055em] text-balance max-[650px]:text-[clamp(2.5rem,12vw,4rem)]">Technologies I work with.</h2>
+        <h2 class="m-0 max-w-[800px] text-[clamp(2.4rem,4.8vw,4.6rem)] font-extrabold leading-[1] tracking-[-0.05em] text-balance max-[650px]:text-[clamp(2.2rem,10vw,3.5rem)]">Technologies I work with.</h2>
       </Reveal>
       <Reveal delay={200}>
-        <p class="max-w-[380px] pt-[0.6rem] text-[clamp(1rem,1.2vw,1.15rem)] leading-[1.8] text-muted max-[900px]:max-w-[600px] max-[900px]:pt-0">Technologies and tools I use to build software.</p>
+        <p class="max-w-[380px] pt-[0.6rem] text-[clamp(1rem,1.15vw,1.15rem)] leading-[1.8] text-muted max-[900px]:max-w-[600px] max-[900px]:pt-0">Technologies and tools I use to build software.</p>
       </Reveal>
     </div>
 
@@ -27,7 +27,7 @@ import Reveal from "../animations/Reveal.astro";
             <h3 class="skill-category relative m-0 font-heading text-[0.72rem] font-extrabold uppercase leading-[1.4] tracking-[0.15em] text-muted max-[650px]:text-[0.68rem]">{group.category}</h3>
             <div class="flex flex-wrap items-start gap-x-5 gap-y-2">
               {group.skills.map((skill) => (
-                <span class="skill-item relative inline-flex items-center text-[clamp(1rem,1.5vw,1.25rem)] font-semibold leading-[1.5] text-ink transition duration-200 hover:-translate-y-0.5 hover:text-muted max-[650px]:mr-0 max-[650px]:text-base">{skill}</span>
+                <span class="skill-item relative inline-flex items-center text-[clamp(0.95rem,1.35vw,1.15rem)] font-semibold leading-[1.5] text-ink transition duration-200 hover:-translate-y-0.5 hover:text-muted max-[650px]:mr-0 max-[650px]:text-[0.95rem]">{skill}</span>
               ))}
             </div>
           </div>
