@@ -9,7 +9,13 @@ const { name, role, description } = Astro.props;
 ---
 
 <section class="hero relative flex min-h-svh items-center overflow-hidden border-b border-line py-28 pb-16 max-[900px]:min-h-0 max-[900px]:py-32 max-[600px]:py-28 max-[600px]:pb-16">
-  <div class="hero-container relative z-10 mx-auto grid w-full max-w-[1200px] grid-cols-[minmax(0,1fr)_360px] items-center gap-[clamp(3rem,7vw,7rem)] px-6 py-16 max-[900px]:grid-cols-1 max-[900px]:gap-16 max-[600px]:gap-14 max-[600px]:px-4 max-[600px]:py-12">
+  <div class="hero-container relative z-10 mx-auto grid w-full max-w-[1200px] grid-cols-[180px_minmax(0,1fr)] items-start gap-[clamp(2.5rem,5vw,4.5rem)] px-6 py-16 max-[900px]:grid-cols-[140px_minmax(0,1fr)] max-[900px]:gap-10 max-[600px]:grid-cols-[88px_minmax(0,1fr)] max-[600px]:gap-6 max-[600px]:px-4 max-[600px]:py-12">
+    <div class="hero-image relative flex justify-start pt-1 animate-[imageReveal_1s_cubic-bezier(0.22,1,0.36,1)_200ms_both]">
+      <div class="photo-placeholder relative h-[150px] w-[150px] overflow-hidden rounded-full border-2 border-ink bg-[#e8e8e2] max-[900px]:h-[120px] max-[900px]:w-[120px] max-[600px]:h-[88px] max-[600px]:w-[88px]">
+        <img src="/images/profile/profile.jpg" alt="Portrait of Abrham Tadesse" class="absolute inset-0 h-full w-full object-cover object-[60%_center]" fetchpriority="high" />
+      </div>
+    </div>
+
     <div class="hero-content max-w-[760px] animate-[heroReveal_1s_cubic-bezier(0.22,1,0.36,1)_both] max-[900px]:max-w-full">
       <p class="intro mb-6 flex items-center gap-[0.9rem] text-xs font-extrabold uppercase tracking-[0.2em] text-muted">
         Hello, I'm
@@ -23,11 +29,6 @@ const { name, role, description } = Astro.props;
       </div>
     </div>
 
-    <div class="hero-image relative flex animate-[imageReveal_1s_cubic-bezier(0.22,1,0.36,1)_200ms_both] justify-center max-[900px]:justify-start max-[600px]:justify-center">
-      <div class="photo-placeholder relative flex aspect-[4/5] w-full max-w-[360px] items-center justify-center overflow-hidden border border-ink bg-[#e8e8e2] max-[900px]:max-w-[320px] max-[600px]:max-w-[280px]">
-        <img src="/images/profile/profile.jpg" alt="Portrait of Abrham Tadesse" class="absolute inset-0 h-full w-full object-cover object-[60%_center]" fetchpriority="high" />
-      </div>
-    </div>
   </div>
 </section>
 
@@ -51,27 +52,9 @@ const { name, role, description } = Astro.props;
     background: var(--border-dark);
   }
 
-  .hero-image::before {
-    content: "PROFILE";
-    position: absolute;
-    top: -1.75rem;
-    right: 0;
-    color: var(--text-muted);
-    font-family: var(--font-heading);
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
+  .photo-placeholder {
+    box-shadow: 0 12px 32px rgb(14 14 14 / 12%);
   }
-
-  .photo-placeholder::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border: 1px solid rgb(14 14 14 / 16%);
-    transition: inset 0.5s var(--ease-out);
-  }
-
-  .photo-placeholder:hover::before { inset: 20px; }
 
   .hero-button {
     position: relative;
@@ -115,5 +98,5 @@ const { name, role, description } = Astro.props;
 
   @media (max-width: 900px) { .hero::before { top: 5rem; } }
   @media (max-width: 600px) { .hero::before { top: 5rem; left: 1rem; } .hero-button { width: 100%; } }
-  @media (prefers-reduced-motion: reduce) { .hero-content, .hero-image { animation: none; } .hero-button, .hero-button::after, .photo-placeholder::before { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero-content, .hero-image { animation: none; } .hero-button, .hero-button::after { transition: none; } }
 </style>
